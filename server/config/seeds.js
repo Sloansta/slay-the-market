@@ -47,8 +47,8 @@ db.once("open", async () => {
   await Player.deleteMany();
 
   await Player.create({
-    userName: "PlayerName2",
-    email: "player2@test.com",
+    userName: "PlayerName1",
+    email: "player1@test.com",
     password: "password12345",
     maxHealth: 100,
     currentHealth: 90,
@@ -61,7 +61,7 @@ db.once("open", async () => {
     password: "password12345",
     maxHealth: 100,
     currentHealth: 90,
-    deck: ["Card1", "Card2"],
+    deck: ["Card3", "Card4"],
   });
 
   console.log("Players seeded");
