@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Sloansta/slay-the-market/issues"
   },
-  "homepage": "https://github.com/Sloansta/slay-the-market#readme"
+  "homepage": "https://github.com/Sloansta/slay-the-market#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
 }
