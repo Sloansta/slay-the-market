@@ -1,0 +1,1 @@
+// currentHealth, maxHealth, intents
