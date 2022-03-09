@@ -48,6 +48,7 @@ const typeDefs = gql`
         enemy(enemy: ID, name: String): Enemy
         player: Player
         room(_id: ID): Room
+        getEnemiesInRoom(_id: ID): [Enemy]
     }
 
     type Mutation {
