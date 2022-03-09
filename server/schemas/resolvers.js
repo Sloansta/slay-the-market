@@ -62,6 +62,14 @@ const resolvers = {
                 return newRoom;
             
             throw new AuthenticationError('Room with that id not found');
+        },
+
+        getEnemiesInRoom: async ({ _id }) => {
+            const newRoom = Room.findById({ _id: id });
+            if(newRoom)
+                return await newRoom.enemies;
+            
+            throw new AuthenticationError('Room with that ID not found');
         }
     }
 };
