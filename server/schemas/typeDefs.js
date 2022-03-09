@@ -36,6 +36,11 @@ const typeDefs = gql`
         enemies: [Enemy]
     }
 
+    type Auth {
+        token: ID
+        player: Player
+    }
+
     type Query {
         cards: [Card]
         card(name: String): Card
@@ -43,11 +48,6 @@ const typeDefs = gql`
         enemy(enemy: ID, name: String): Enemy
         player: Player
         room(_id: ID): Room
-    }
-
-    type Auth {
-        token: ID
-        player: Player
     }
 
     type Mutation {
