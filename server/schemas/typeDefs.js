@@ -52,9 +52,9 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addEnemy(name: String!): Enemy
+        addEnemy(name: String!, currentHealth: Int!, maxHealth: Int!): Enemy
         addPlayer(username: String!, email: String!, password: String!): Player
-        upgradeCard(name: String!, class: String!, value: Int!): Card
+        upgradeCard(_id: ID, name: String!, class: String!, value: Int!): Card
         login(email: String!, password: String!): Auth
     }
 `;
