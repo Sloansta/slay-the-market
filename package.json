@@ -1,0 +1,20 @@
+{
+  "name": "slay-the-market",
+  "version": "1.0.0",
+  "description": "Slay the market",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sloansta/slay-the-market.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sloansta/slay-the-market/issues"
+  },
+  "homepage": "https://github.com/Sloansta/slay-the-market#readme"
+}
