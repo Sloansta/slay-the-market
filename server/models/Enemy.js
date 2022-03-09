@@ -2,11 +2,33 @@
 const mongoose = require('mongoose');
 const { Schema }   = mongoose;
 
-const cardSchema = new Schema({
+const enemySchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+        trim: true
+
+    },
+    currentHealth: {
+        type: Number,
+        required: true
+    },
+    maxHealth: {
+        type: Number,
+        required: true
+    },
+    // TODO: 
+    // I am not positive what this will look like
+    // so making it an array for now
+    intents: {
+        type: Array
+    }
+
+
 
 
 })
 
-const Card = mongoose.model('Card', cardSchema);
+const Enemy = mongoose.model('Enemy', enemySchema);
 
-module.exports = Card;
+module.exports = Enemy;
