@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Cave () {
+function Card () {
     return (
         <section>
-            <h2>This is a cave</h2>
+            <h3>Cards here</h3>
         </section>
     )
 }
 
-export default Cave;
+export default Card;

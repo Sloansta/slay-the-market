@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Cave () {
+function Enemy () {
     return (
         <section>
-            <h2>This is a cave</h2>
+            <h2>Enemy goes here</h2>
         </section>
     )
-}
+};
 
-export default Cave;
+export default Enemy;

@@ -1,0 +1,31 @@
+:root {
+    --white: #e9e9e9;
+    --gray: #333;
+    --yellow: #FFCD7A;
+    --tan: #E8AB6F;
+    --salmon: #FFB187;
+    --orange: #E8886F;
+    --red: #FF827A;
+}
+
+main {
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+}
+
+input {
+    border: 1px solid var(--gray);
+    background: var(--gray);
+}
+
+.submit {
+    border: 1px solid var(--gray);
+    border-radius: 0 5px 5px 0;
+    background: var(--red);
+    color: var(--white);
+}
+
+form {
+    margin-top: 5%;
+}

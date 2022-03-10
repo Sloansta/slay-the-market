@@ -1,17 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Nav from './components/Nav';
-import Footer from './components/Footer';
 
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Player from './pages/Player';
 import Cave from './pages/Cave';
+import Forest from './pages/Forest';
+import TestRoom from './pages/TestRoom';
+
+import NoMatch from './pages/NoMatch';
 
 function App() {
   return (
     <Router>
-      <Nav />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/Player" component={Player} />
+        <Route exact path="/Cave" component={Cave} />
+        <Route exact path="/Forest" component={Forest} />
+        <Route exact path="/TestRoom" component={TestRoom} />
 
-      <Footer />
+        <Route component={NoMatch} />
+      </Switch>
     </Router>
     
   );

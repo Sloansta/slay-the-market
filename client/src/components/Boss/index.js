@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Cave () {
+function Boss () {
     return (
         <section>
-            <h2>This is a cave</h2>
+            <h2>Boss goes here</h2>
         </section>
     )
-}
+};
 
-export default Cave;
+export default Boss;

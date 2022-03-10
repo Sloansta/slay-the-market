@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Cave () {
+function Icon () {
     return (
         <section>
-            <h2>This is a cave</h2>
+            <h3>Player Icon Goes Here</h3>
         </section>
     )
-}
+};
 
-export default Cave;
+export default Icon;

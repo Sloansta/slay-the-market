@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Cave () {
+function TestRoom () {
     return (
         <section>
-            <h2>This is a cave</h2>
+            <h2>This is a TestRoom</h2>
         </section>
     )
 }
 
-export default Cave;
+export default TestRoom;

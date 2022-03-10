@@ -1,5 +1,5 @@
 const db = require("./connection");
-const { Card, Enemy, Player, Room } = require("../models");
+const { Card, Enemy, Player, Room, Stock } = require("../models");
 
 db.once("open", async () => {
   await Card.deleteMany();
@@ -79,6 +79,24 @@ db.once("open", async () => {
     },
   ]);
   console.log("Rooms seeded");
+
+  const stocks = await Stock.insertMany([
+    {
+      id: 1,
+      name: "Apple",
+      symbol: "APPL",
+      quote: 151.18,
+      candleTrend: -7,
+    },
+    {
+      id: 2,
+      name: "Tesla",
+      symbol: "TSLA",
+      quote: 831.12,
+      candleTrend: -18,
+    },
+  ]);
+  console.log("Stocks seeded");
 
   process.exit();
 });
