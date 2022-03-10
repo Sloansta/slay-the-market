@@ -2,14 +2,27 @@ import React from 'react';
 
 import Nav from '../components/Nav';
 import Icon from '../components/Icon';
-import Footer from '../components/Footer';
+import Card from '../components/Card';
 
 function Player () {
+
     return (
         <section>
-            <Nav />
-            <Icon />
-            <Footer />
+            <div>
+                <Nav />
+            </div>
+            
+
+            <footer>
+                <div>
+                    <Icon />
+                </div>
+            
+                <div>
+                    <Card />
+                </div>
+            </footer>
+
         </section>
     )
 }
