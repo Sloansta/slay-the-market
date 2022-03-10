@@ -1,5 +1,5 @@
 const { AuthenticationError, ReplaceFieldWithFragment, UserInputError } = require('apollo-server-express');
-const { Card, Enemy, Player, Room } = require('../models');
+const { Card, Enemy, Player, Room, Stock } = require('../models');
 const { signToken } = require('../utils/auth');
 // const stripe = require('stripe');
 
@@ -108,6 +108,21 @@ const resolvers = {
                 return upgradedCard;
             
             throw new AuthenticationError('Something went wrong when updating the card');
+        },
+
+        addStock: async (data) => {
+            const newStock = await Stock.create({
+                id: data._id,
+                name: data.name,
+                symbol: data.symbol,
+                quote: data.quote,
+                candleTrend: data.candleTrend
+            });
+
+            if(newStock)
+                return newStock;
+            
+            throw new AuthenticationError('Stock could not be added');
         },
 
         // validates user and logs them in

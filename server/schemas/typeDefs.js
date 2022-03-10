@@ -30,6 +30,14 @@ const typeDefs = gql`
         deck: [Card]
     }
 
+    type Stock {
+        _id: ID
+        name: String
+        symbol: String
+        quote: Float
+        candleTrend: Float
+    }
+
     type Room {
         _id: ID
         bgImage: String
@@ -56,6 +64,7 @@ const typeDefs = gql`
         addPlayer(username: String!, email: String!, password: String!): Player
         upgradeCard(_id: ID, name: String!, class: String!, value: Int!): Card
         login(email: String!, password: String!): Auth
+        addStock(_id: ID!, name: String!, symbol: String!, quote: Float!, candleTrend: Float!): Stock
     }
 `;
 
