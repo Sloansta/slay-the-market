@@ -1,11 +1,13 @@
 import React from 'react';
 
+import '../assets/page-css/auth.css'
+
 function Login () {
     return (
     <main>
         <div>
             <div>
-                <h4>Login</h4>
+                {/* <h4>Login</h4> */}
                 <div>
                     <form>
                         <input
@@ -18,7 +20,7 @@ function Login () {
                             name="password"
                             type="password"
                         />
-                        <button type="submit">
+                        <button class='submit' type="submit">
                             Login
                         </button>
                     </form>
