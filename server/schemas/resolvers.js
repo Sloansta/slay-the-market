@@ -1,4 +1,4 @@
-const { AuthenticationError, ReplaceFieldWithFragment } = require('apollo-server-express');
+const { AuthenticationError, ReplaceFieldWithFragment, UserInputError } = require('apollo-server-express');
 const { Card, Enemy, Player, Room } = require('../models');
 const { signToken } = require('../utils/auth');
 // const stripe = require('stripe');
@@ -70,6 +70,61 @@ const resolvers = {
                 return await newRoom.enemies;
             
             throw new AuthenticationError('Room with that ID not found');
+        }
+    },
+
+    Mutation: {
+
+        // TODO: All mutations currenty have boiler plate arguments, they will likely break
+        // will fix according to the needs of the frontend
+
+        // creates a new player, with validation
+        addPlayer: async (parent, args) => {
+            const player = await Player.create(args);
+            if(!player)
+                throw new AuthenticationError('Something went wrong when attempting to create account');
+
+            const token = signToken(player);
+
+            return { token, player };
+        },
+
+        // adds enemy with the properties of args
+        addEnemy: async (parent, args) => {
+            const enemy = await Enemy.create(args);
+
+            if(enemy)
+                return enemy;
+            
+            throw new AuthenticationError('Something went wrong when trying to create enemy');
+
+        },
+
+        // upgrades specific card that matches _id
+        upgradeCard: async (parent, { _id }, args) => {
+             const upgradedCard = await Card.findByIdAndUpdate(_id, args, { new: true });
+
+             if(upgradedCard)
+                return upgradedCard;
+            
+            throw new AuthenticationError('Something went wrong when updating the card');
+        },
+
+        // validates user and logs them in
+        login: async (parent, { email, password }) => {
+            const player = await Player.findOne({ email });
+
+            if(!player)
+                throw new AuthenticationError('Incorrect credentials');
+            
+            const playerPw = await player.isCorrectPassword(password);
+
+            if(!playerPw)
+                throw new AuthenticationError('Incorrect password');
+            
+            const token = signToken(player);
+
+            return { token, player };
         }
     }
 };
