@@ -110,6 +110,7 @@ const resolvers = {
             throw new AuthenticationError('Something went wrong when updating the card');
         },
 
+        // adding stock, this will add data based on what
         addStock: async (data) => {
             const newStock = await Stock.create({
                 id: data._id,
