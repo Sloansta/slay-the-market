@@ -19,7 +19,7 @@ const stockSchema = new Schema({
     type: Number,
     required: true,
   },
-  candleTrend: {
+  precentChange: {
     type: Number,
     required: true,
   },
