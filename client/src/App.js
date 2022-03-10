@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Player from './pages/Player';
 import Cave from './pages/Cave';
 import Forest from './pages/Forest';
+import TestRoom from './pages/TestRoom';
 
 import NoMatch from './pages/NoMatch';
 
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/Player" component={Player} />
         <Route exact path="/Cave" component={Cave} />
         <Route exact path="/Forest" component={Forest} />
+        <Route exact path="/TestRoom" component={TestRoom} />
 
         <Route component={NoMatch} />
       </Switch>
