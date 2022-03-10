@@ -74,13 +74,22 @@ const resolvers = {
     },
 
     Mutation: {
+
+        // TODO: All mutations currenty have boiler plate arguments, they will likely break
+        // will fix according to the needs of the frontend
+
+        // creates a new player, with validation
         addPlayer: async (parent, args) => {
             const player = await Player.create(args);
+            if(!player)
+                throw new AuthenticationError('Something went wrong when attempting to create account');
+
             const token = signToken(player);
 
             return { token, player };
         },
 
+        // adds enemy with the properties of args
         addEnemy: async (parent, args) => {
             const enemy = await Enemy.create(args);
 
@@ -91,7 +100,8 @@ const resolvers = {
 
         },
 
-        upgradeCard: async (parent, {_id}, args) => {
+        // upgrades specific card that matches _id
+        upgradeCard: async (parent, { _id }, args) => {
              const upgradedCard = await Card.findByIdAndUpdate(_id, args, { new: true });
 
              if(upgradedCard)
@@ -100,6 +110,7 @@ const resolvers = {
             throw new AuthenticationError('Something went wrong when updating the card');
         },
 
+        // validates user and logs them in
         login: async (parent, { email, password }) => {
             const player = await Player.findOne({ email });
 
