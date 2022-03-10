@@ -1,0 +1,13 @@
+/* 
+
+add decode
+import decode
+
+create authService class
+create loggedin checks
+create token expiration checks
+login and getToken functions
+get profile function
+logout function
+
+*/
