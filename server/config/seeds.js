@@ -29,22 +29,16 @@ db.once("open", async () => {
 
   const enemies = await Enemy.insertMany([
     {
-      name: "Sweaty Crypto Bro",
+      name: "Enemy1",
       currentHealth: 10,
       maxHealth: 20,
-      intents: {
-        attack: randomVal(2, 5),
-        block: 4
-      },
+      intents: ["Intent1", "Intent2"],
     },
     {
-      name: "Elon Musk Fanboy",
+      name: "Enemy2",
       currentHealth: 30,
       maxHealth: 60,
-      intents: {
-        attack: randomVal(3, 6),
-        block: randomVal(2, 4)
-      }
+      intents: ["Intent3", "Intent4"],
     },
   ]);
 
