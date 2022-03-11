@@ -6,7 +6,7 @@ db.once("open", async () => {
 
   const cards = await Card.insertMany([
     {
-      // Attack Cards
+      // Attack Cards 1-40
       name: "Apple APPL",
       description: "Apple Corporation",
       id: 1,
@@ -17,7 +17,7 @@ db.once("open", async () => {
     {
       name: "TSLA Tesla",
       description: "Tesla Corporation",
-      id: 1,
+      id: 2,
       class: "Attack",
       value: 7,
       upgrade: 1,
@@ -25,7 +25,7 @@ db.once("open", async () => {
     {
       name: "eBay Inc.  EBAY",
       description: "eBay Inc.",
-      id: 1,
+      id: 3,
       class: "Attack",
       value: 7,
       upgrade: 1,
@@ -33,7 +33,7 @@ db.once("open", async () => {
     {
       name: "UWM Holdings Corp. UWMC",
       description: "UWM Holdings Corp.",
-      id: 1,
+      id: 4,
       class: "Attack",
       value: 7,
       upgrade: 1,
@@ -41,7 +41,7 @@ db.once("open", async () => {
     {
       name: "United States Steel Corp. X",
       description: "United States Steel Corp.",
-      id: 1,
+      id: 5,
       class: "Attack",
       value: 7,
       upgrade: 1,
@@ -49,7 +49,7 @@ db.once("open", async () => {
     {
       name: "Best Buy Co Inc  BBY",
       description: "Best Buy Co Inc.",
-      id: 1,
+      id: 6,
       class: "Attack",
       value: 7,
       upgrade: 1,
@@ -57,7 +57,7 @@ db.once("open", async () => {
     {
       name: "MicroSoft Corporation MSFT",
       description: "MicroSoft Corporation",
-      id: 1,
+      id: 7,
       class: "Attack",
       value: 7,
       upgrade: 1,
@@ -65,7 +65,7 @@ db.once("open", async () => {
     {
       name: "Sony Group Corp SONY",
       description: "Sony Group Corp",
-      id: 1,
+      id: 8,
       class: "Attack",
       value: 7,
       upgrade: 1,
@@ -75,7 +75,7 @@ db.once("open", async () => {
     {
       name: "Nintendo NTDOY",
       description: "Nintendo ",
-      id: 1,
+      id: 9,
       class: "Attack",
       value: 7,
       upgrade: 1,
@@ -83,7 +83,7 @@ db.once("open", async () => {
     {
       name: "GameStop GME",
       description: "GameStop Corporation",
-      id: 1,
+      id: 10,
       class: "Attack",
       value: 7,
       upgrade: 1,
@@ -91,7 +91,7 @@ db.once("open", async () => {
     {
       name: "Lockheed Martin LMT",
       description: "Lockheed Martin Corporation",
-      id: 1,
+      id: 11,
       class: "Attack",
       value: 9,
       upgrade: 1,
@@ -99,7 +99,7 @@ db.once("open", async () => {
     {
       name: "Raytheon RTX",
       description: "Raytheon Technologies Corporation",
-      id: 1,
+      id: 12,
       class: "Attack",
       value: 9,
       upgrade: 1,
@@ -107,24 +107,18 @@ db.once("open", async () => {
     {
       name: "Northrop Grumman NOC",
       description: "Northro Grumman Corporation",
-      id: 1,
+      id: 13,
       class: "Attack",
       value: 9,
       upgrade: 1,
     },
-    // Defense Cards
-    {
-      name: "Bayer BAYRY",
-      description: "Bayer AG Corporation",
-      id: 1,
-      class: "Heal",
-      value: 1,
-      upgrade: 1,
-    },
+
+    // Block Cards 41-60
+   
     {
       name: "Moderna MRNA",
       description: "Moderna Inc.",
-      id: 1,
+      id: 41,
       class: "Block",
       value: 3,
       upgrade: 1,
@@ -132,7 +126,7 @@ db.once("open", async () => {
     {
       name: "Pfizer Inc.",
       description: "Pfizer Inc.",
-      id: 1,
+      id: 42,
       class: "Block",
       value: 3,
       upgrade: 1,
@@ -140,15 +134,17 @@ db.once("open", async () => {
     {
       name: "Johnson & Johnson JNJ",
       description: "Johnson & Johnson",
-      id: 1,
+      id: 43,
       class: "Block",
       value: 3,
       upgrade: 1,
     },
+
+    // Heal Cards   61-80
     {
       name: "Eli Lilly and Co LLY",
       description: "Eli Lilly and Co",
-      id: 1,
+      id: 61,
       class: "Heal",
       value: 1,
       upgrade: 1,
@@ -156,7 +152,7 @@ db.once("open", async () => {
     {
       name: "Novo Nordisk A/S NVO",
       description: "Novo Nordisk A/S",
-      id: 1,
+      id: 62,
       class: "Heal",
       value: 1,
       upgrade: 1,
@@ -164,11 +160,193 @@ db.once("open", async () => {
     {
       name: "Merck & Co Inc  MRK",
       description: "Merck & Co Inc",
-      id: 1,
+      id: 63,
       class: "Heal",
       value: 1,
       upgrade: 1,
     },
+
+    {
+      name: "Bayer BAYRY",
+      description: "Bayer AG Corporation",
+      id: 64,
+      class: "Heal",
+      value: 1,
+      upgrade: 1,
+    },
+    // UTIL Cards 81-100
+
+
+     //  Upgraded Attack Cards 101-140
+    {
+     name: "Upgraded Apple APPL",
+     description: "Apple Corporation",
+     id: 101,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded TSLA Tesla",
+     description: "Tesla Corporation",
+     id: 102,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded eBay Inc.  EBAY",
+     description: "eBay Inc.",
+     id: 103,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded UWM Holdings Corp. UWMC",
+     description: "UWM Holdings Corp.",
+     id: 104,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded United States Steel Corp. X",
+     description: "United States Steel Corp.",
+     id: 105,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded Best Buy Co Inc  BBY",
+     description: "Best Buy Co Inc.",
+     id: 106,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded MicroSoft Corporation MSFT",
+     description: "MicroSoft Corporation",
+     id: 107,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded Sony Group Corp SONY",
+     description: "Sony Group Corp",
+     id: 108,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+
+
+   {
+     name: "Upgraded Nintendo NTDOY",
+     description: "Nintendo ",
+     id: 109,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded GameStop GME",
+     description: "GameStop Corporation",
+     id: 110,
+     class: "Attack",
+     value: 9,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded Lockheed Martin LMT",
+     description: "Lockheed Martin Corporation",
+     id: 111,
+     class: "Attack",
+     value: 11,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded Raytheon RTX",
+     description: "Raytheon Technologies Corporation",
+     id: 112,
+     class: "Attack",
+     value: 11,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded Northrop Grumman NOC",
+     description: "Northro Grumman Corporation",
+     id: 113,
+     class: "Attack",
+     value: 11,
+     upgrade: 1,
+   },
+
+   // Upgraded Block Cards 141-160
+  
+   {
+     name: "Upgraded Moderna MRNA",
+     description: "Moderna Inc.",
+     id: 141,
+     class: "Block",
+     value: 5,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded Pfizer Inc.",
+     description: "Pfizer Inc.",
+     id: 142,
+     class: "Block",
+     value: 5,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded Johnson & Johnson JNJ",
+     description: "Johnson & Johnson",
+     id: 143,
+     class: "Block",
+     value: 5,
+     upgrade: 1,
+   },
+
+   // Upgraded Heal Cards   161-180
+   {
+     name: "Upgraded Eli Lilly and Co LLY",
+     description: "Eli Lilly and Co",
+     id: 161,
+     class: "Heal",
+     value: 3,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded Novo Nordisk A/S NVO",
+     description: "Novo Nordisk A/S",
+     id: 162,
+     class: "Heal",
+     value: 3,
+     upgrade: 1,
+   },
+   {
+     name: "Upgraded Merck & Co Inc  MRK",
+     description: "Merck & Co Inc",
+     id: 163,
+     class: "Heal",
+     value: 3,
+     upgrade: 1,
+   },
+
+   {
+     name: "Upgraded Bayer BAYRY",
+     description: "Bayer AG Corporation",
+     id: 164,
+     class: "Heal",
+     value: 3,
+     upgrade: 1,
+   },
+   //  Upgraded UTIL Cards181-200
   ]);
 
   console.log("Cards seeded");
@@ -200,7 +378,7 @@ db.once("open", async () => {
     password: "password12345",
     maxHealth: 100,
     currentHealth: 90,
-    deck: ["Card1", "Card2"],
+    deck: [cards[0]._id , cards[1]._id],
   });
 
   await Player.create({
@@ -209,7 +387,7 @@ db.once("open", async () => {
     password: "password12345",
     maxHealth: 100,
     currentHealth: 90,
-    deck: ["Card3", "Card4"],
+    deck: [cards[0]._id , cards[1]._id],
   });
 
   console.log("Players seeded");
