@@ -177,16 +177,67 @@ db.once("open", async () => {
 
   const enemies = await Enemy.insertMany([
     {
-      name: "Enemy1",
+      name: "Sweaty Crypto Bro",
       currentHealth: 10,
       maxHealth: 20,
-      intents: ["Intent1", "Intent2"],
+      intents: {
+        attack: randomVal(3, 5),
+        block: randomVal(2, 4)
+      },
     },
     {
-      name: "Enemy2",
+      name: "Strange Looking Ape PNG",
       currentHealth: 30,
       maxHealth: 60,
-      intents: ["Intent3", "Intent4"],
+      intents: {
+        attack: randomVal(4, 6),
+        block: randomVal(3, 6)
+      },
+    },
+    {
+      name: "Generic Shiba Inu",
+      currentHealth: 15,
+      maxHealth: 20,
+      intents: {
+        attack: randomVal(2, 4),
+        block: randomVal(2, 6)
+      },
+    },
+    {
+      name: "Crypto Punk",
+      currentHealth: randomVal(5, 20),
+      maxHealth: 20,
+      intents: {
+        attack: randomVal(2, 4),
+        block: randomVal(2, 6)
+      },
+    },
+    {
+      name: "Over Priced Cat PNG",
+      currentHealth: randomVal(15, 20),
+      maxHealth: 34,
+      intents: {
+        attack: randomVal(2, 6),
+        block: randomVal(2, 6)
+      },
+    },
+    {
+      name: "An Egg????",
+      currentHealth: randomVal(5, 15),
+      maxHealth: 13,
+      intents: {
+        attack: randomVal(1, 4),
+        block: randomVal(2, 4)
+      },
+    },
+    {
+      name: "Totally Unique JPEG",
+      currentHealth: randomVal(5, 10),
+      maxHealth: 10,
+      intents: {
+        attack: randomVal(1, 3),
+        block: randomVal(2, 7)
+      },
     },
   ]);
 
