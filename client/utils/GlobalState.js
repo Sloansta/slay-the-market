@@ -6,12 +6,15 @@ const { Provider } = GameContext;
 
 const GameProvider = ({ value = [], ...props}) => {
     const [state, dispatch] = useGameReducer({
+        currentHealth: 100,
         deck: [],
         cards: [],
         rooms: [],
         currentRoom: '',
         inCombat: false,
-        isAlive: true
+        isAlive: true,
+        discardPile: [],
+        selectedCard: {}
     });
     return <Provider value={[state, dispatch]}{...props} />
 };
