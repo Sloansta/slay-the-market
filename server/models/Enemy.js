@@ -22,12 +22,14 @@ const enemySchema = new Schema({
     // so making it an array for now
     intents: {
         type: Array
+    },
+
+    isBoss: {
+        type: Boolean,
+        required: true
     }
 
-
-
-
-})
+});
 
 const Enemy = mongoose.model('Enemy', enemySchema);
 
