@@ -117,7 +117,7 @@ const resolvers = {
                 name: data.name,
                 symbol: data.symbol,
                 quote: data.quote,
-                candleTrend: data.candleTrend
+                percentChange: data.percentChange
             });
 
             if(newStock)
