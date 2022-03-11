@@ -29,16 +29,22 @@ db.once("open", async () => {
 
   const enemies = await Enemy.insertMany([
     {
-      name: "Enemy1",
+      name: "Sweaty Crypto Bro",
       currentHealth: 10,
       maxHealth: 20,
-      intents: ["Intent1", "Intent2"],
+      intents: {
+        attack: randomVal(2, 5),
+        block: 4
+      },
     },
     {
-      name: "Enemy2",
+      name: "Elon Musk Fanboy",
       currentHealth: 30,
       maxHealth: 60,
-      intents: ["Intent3", "Intent4"],
+      intents: {
+        attack: randomVal(3, 6),
+        block: randomVal(2, 4)
+      }
     },
   ]);
 
@@ -100,3 +106,7 @@ db.once("open", async () => {
 
   process.exit();
 });
+
+function randomVal(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
