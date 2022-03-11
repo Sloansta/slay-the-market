@@ -130,7 +130,7 @@ const resolvers = {
 
         //TODO: Because we are changing values within the callback function, it is likely that this will return undefined
         // need to find a way to fix this if this is the case 
-        upgradeStock: async (data) => {
+        /*upgradeStock: async (data) => {
             let upgradedStock;
 
             updateStocks(data.symbol, (current, change) => {
@@ -148,7 +148,7 @@ const resolvers = {
                 }
             });
 
-        },
+        },*/
 
         // validates user and logs them in
         login: async (parent, { email, password }) => {
