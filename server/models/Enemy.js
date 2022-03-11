@@ -9,6 +9,10 @@ const enemySchema = new Schema({
         trim: true
 
     },
+    // isBoss: {
+    //     type: Boolean,
+    //     required: true,
+    // },
     currentHealth: {
         type: Number,
         required: true

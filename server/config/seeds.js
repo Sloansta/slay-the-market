@@ -1,12 +1,20 @@
 const db = require("./connection");
 const { Card, Enemy, Player, Room, Stock } = require("../models");
+const Dungeon = require("../models/Dungeon");
 
 db.once("open", async () => {
   await Card.deleteMany();
 
   const cards = await Card.insertMany([
     {
-      // Attack Cards 1-40
+      name: "Paypal PYPL",
+      description: "PayPal",
+      id: 0,
+      class: "Attack",
+      value: 7,
+      upgrade: 1,
+    },
+    {
       name: "Apple APPL",
       description: "Apple Corporation",
       id: 1,
@@ -70,7 +78,6 @@ db.once("open", async () => {
       value: 7,
       upgrade: 1,
     },
-
     {
       name: "Nintendo NTDOY",
       description: "Nintendo ",
@@ -119,9 +126,6 @@ db.once("open", async () => {
       value: 9,
       upgrade: 1,
     },
-
-    // Block Cards 41-60
-
     {
       name: "Moderna MRNA",
       description: "Moderna Inc.",
@@ -170,8 +174,6 @@ db.once("open", async () => {
       value: 3,
       upgrade: 1,
     },
-
-    // Heal Cards   61-80
     {
       name: "Eli Lilly and Co LLY",
       description: "Eli Lilly and Co",
@@ -196,7 +198,6 @@ db.once("open", async () => {
       value: 1,
       upgrade: 1,
     },
-
     {
       name: "Bayer BAYRY",
       description: "Bayer AG Corporation",
@@ -205,9 +206,14 @@ db.once("open", async () => {
       value: 1,
       upgrade: 1,
     },
-    // UTIL Cards 81-100
-
-    //  Upgraded Attack Cards 101-140
+    {
+      name: "Upgraded Paypal PYPL",
+      description: "PayPal",
+      id: 100,
+      class: "Attack",
+      value: 9,
+      upgrade: 1,
+    },
     {
       name: "Upgraded Apple APPL",
       description: "Apple Corporation",
@@ -321,9 +327,6 @@ db.once("open", async () => {
       value: 11,
       upgrade: 1,
     },
-
-    // Upgraded Block Cards 141-160
-
     {
       name: "Upgraded Moderna MRNA",
       description: "Moderna Inc.",
@@ -407,7 +410,7 @@ db.once("open", async () => {
       value: 3,
       upgrade: 1,
     },
-    //  Upgraded UTIL Cards181-200
+    // Upgraded UTIL Cards181-200
   ]);
 
   console.log("Cards seeded");
@@ -417,12 +420,13 @@ db.once("open", async () => {
   const enemies = await Enemy.insertMany([
     {
       name: "Sweaty Crypto Bro",
+      isBoss: false,
       currentHealth: 10,
       maxHealth: 20,
       isBoss: false,
       intents: {
         attack: randomVal(3, 5),
-        block: randomVal(2, 4)
+        block: randomVal(2, 4),
       },
     },
     {
@@ -432,7 +436,7 @@ db.once("open", async () => {
       isBoss: false,
       intents: {
         attack: randomVal(4, 6),
-        block: randomVal(3, 6)
+        block: randomVal(3, 6),
       },
     },
     {
@@ -442,7 +446,7 @@ db.once("open", async () => {
       isBoss: false,
       intents: {
         attack: randomVal(2, 4),
-        block: randomVal(2, 6)
+        block: randomVal(2, 6),
       },
     },
     {
@@ -452,7 +456,7 @@ db.once("open", async () => {
       isBoss: false,
       intents: {
         attack: randomVal(2, 4),
-        block: randomVal(2, 6)
+        block: randomVal(2, 6),
       },
     },
     {
@@ -462,7 +466,7 @@ db.once("open", async () => {
       isBoss: false,
       intents: {
         attack: randomVal(2, 6),
-        block: randomVal(2, 6)
+        block: randomVal(2, 6),
       },
     },
     {
@@ -472,7 +476,7 @@ db.once("open", async () => {
       isBoss: false,
       intents: {
         attack: randomVal(1, 4),
-        block: randomVal(2, 4)
+        block: randomVal(2, 4),
       },
     },
     {
@@ -482,7 +486,7 @@ db.once("open", async () => {
       isBoss: false,
       intents: {
         attack: randomVal(1, 3),
-        block: randomVal(2, 7)
+        block: randomVal(2, 7),
       },
     },
     {
@@ -622,21 +626,39 @@ db.once("open", async () => {
   });
 
   console.log("Players seeded");
+  await Room.deleteMany();
 
   const rooms = await Room.insertMany([
     {
-      id: 1,
+      id: 0,
       bgImage: "./assets/bgImage1",
-      enemies: ["Enemy1", "Enemy2"],
+      enemies: [
+        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 7)]._id,
+      ],
+    },
+    {
+      id: 1,
+      bgImage: "./assets/bgImage2",
+      enemies: [
+        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 7)]._id,
+      ],
     },
     {
       id: 2,
       bgImage: "./assets/bgImage2",
-      enemies: ["Enemy3", "Enemy4"],
+      enemies: [
+        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 7)]._id,
+      ],
     },
   ]);
   console.log("Rooms seeded");
-
+  await Stock.deleteMany();
   const stocks = await Stock.insertMany([
     {
       id: 1,
@@ -654,6 +676,42 @@ db.once("open", async () => {
     },
   ]);
   console.log("Stocks seeded");
+
+  // Crazy dungeon seeding stuff
+  await Dungeon.deleteMany();
+  const numDungeons = 10;
+  for (let i = 0; i < numDungeons; i++) {
+    //const element = array[i];
+    console.log("Index: ", i);
+
+    const dungeons = await Dungeon.create([
+      {
+        dungeonId: i,
+        rooms: [
+          rooms[randomVal(0, 2)]._id,
+          rooms[randomVal(0, 2)]._id,
+          rooms[randomVal(0, 2)]._id,
+        ],
+        cards: [
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+          cards[randomVal(0, 24)]._id,
+        ],
+        finalBoss: [enemies[randomVal(0, 2)]._id],
+      },
+    ]);
+    //console.log(cards[i].id);
+    console.log(dungeons);
+  }
 
   process.exit();
 });
