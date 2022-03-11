@@ -10,11 +10,11 @@ function Home () {
     return (
         <section>
             <h2>Welcome to Slay the Market!</h2>
-            <section class='auth-box'>
+            <section className='auth-box'>
             <Login />
             <Signup />
             </section>
-            <button class='start'>
+            <button className='start'>
                 Start Game
             </button>
         </section>
