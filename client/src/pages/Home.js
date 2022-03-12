@@ -2,21 +2,32 @@ import React from 'react';
 
 import '../App.css';
 import '../assets/page-css/home.css';
+
+import Auth from '../utils/auth';
+
 import Login from './Login';
 import Signup from './Signup';
 
 
 function Home () {
+    const loggedIn = Auth.loggedIn();
+
     return (
         <section>
             <h2>Welcome to Slay the Market!</h2>
             <section className='auth-box'>
-            <Login />
-            <Signup />
+                {!loggedIn && 
+                    <div>
+                        <Login />
+                        <Signup />
+                    </div>
+                }
+                <button className='start'>
+                    Start Game
+                </button>
+
             </section>
-            <button className='start'>
-                Start Game
-            </button>
+
         </section>
     )
 };

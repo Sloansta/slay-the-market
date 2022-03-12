@@ -51,7 +51,7 @@ function Signup() {
       {/* <h4>Sign Up</h4> */}
       <form onSubmit={handleFormSubmit}>
         <input
-          placeholder="Your userName"
+          placeholder="Your username"
           name="userName"
           type="userName"
           value={formState.userName}
