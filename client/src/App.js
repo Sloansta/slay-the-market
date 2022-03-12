@@ -10,7 +10,8 @@ import Login from './pages/Login';
 import Player from './pages/Player';
 import TestRoom from './pages/TestRoom';
 import NoMatch from './pages/NoMatch';
-import { QUERY_PLAYER } from '../utils/queries';
+// import { QUERY_PLAYER } from '../utils/queries';
+import { useQuery } from '@apollo/client';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql'
