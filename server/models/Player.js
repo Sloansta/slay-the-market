@@ -30,12 +30,7 @@ const playerSchema = new Schema({
     type: Number,
     required: true,
   },
-  // Might use an array of card names??
-  // deck: {
-  //   type: Array,
-  // },
-  // We might need to do an array of subdocuments
-
+  
   deck: [
     {
       type: Schema.Types.ObjectId,
