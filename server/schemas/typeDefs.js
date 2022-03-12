@@ -23,7 +23,7 @@ const typeDefs = gql`
     }
 
     type Player {
-        username: String
+        userName: String
         email: String
         password: String
         maxHealth: Int
@@ -62,7 +62,7 @@ const typeDefs = gql`
 
     type Mutation {
         addEnemy(name: String!, currentHealth: Int!, maxHealth: Int!, isBoss: Boolean!): Enemy
-        addPlayer(username: String!, email: String!, password: String!): Player
+        addPlayer(userName: String!, email: String!, password: String!): Player
         upgradeCard(_id: ID, name: String!, class: String!, value: Int!): Card
         login(email: String!, password: String!): Auth
         addStock(_id: ID!, name: String!, symbol: String!, quote: Float!, candleTrend: Float!): Stock
