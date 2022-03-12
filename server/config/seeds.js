@@ -633,27 +633,27 @@ db.once("open", async () => {
       id: 0,
       bgImage: "./assets/bgImage1",
       enemies: [
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
       ],
     },
     {
       id: 1,
       bgImage: "./assets/bgImage2",
       enemies: [
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
       ],
     },
     {
       id: 2,
       bgImage: "./assets/bgImage2",
       enemies: [
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
       ],
     },
   ]);
@@ -706,7 +706,7 @@ db.once("open", async () => {
           cards[randomVal(0, 24)]._id,
           cards[randomVal(0, 24)]._id,
         ],
-        finalBoss: [enemies[randomVal(0, 2)]._id],
+        finalBoss: [enemies[randomVal(13, 15)]._id],
       },
     ]);
     //console.log(cards[i].id);

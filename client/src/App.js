@@ -3,14 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider, createHttpLink, ApolloClient, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Player from './pages/Player';
 import TestRoom from './pages/TestRoom';
 import NoMatch from './pages/NoMatch';
-// import { QUERY_PLAYER } from '../utils/queries';
 import { useQuery } from '@apollo/client';
 
 const httpLink = createHttpLink({
