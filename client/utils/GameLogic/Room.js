@@ -21,7 +21,7 @@ export default class Room {
             }
         }
          
-        if(!newEnemyArray || newEnemyArray === undefined) {
+        if(!newEnemyArray || newEnemyArray === undefined || newEnemyArray.length < 0) {
             return false;
         } else {
             return newEnemyArray;
