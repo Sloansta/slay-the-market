@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { UPDATE_DECK, SHUFFLE_DECK, DISCARD }
+import { UPDATE_DECK, SHUFFLE_DECK, DISCARD } from '../utils/actions'
 function Card () {
+    
     return (
         <section>
             <motion.div drag='x'
