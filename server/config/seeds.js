@@ -423,6 +423,7 @@ db.once("open", async () => {
       isBoss: false,
       currentHealth: 10,
       maxHealth: 20,
+      isBoss: false,
       intents: {
         attack: randomVal(3, 5),
         block: randomVal(2, 4),
@@ -432,6 +433,7 @@ db.once("open", async () => {
       name: "Strange Looking Ape PNG",
       currentHealth: 30,
       maxHealth: 60,
+      isBoss: false,
       intents: {
         attack: randomVal(4, 6),
         block: randomVal(3, 6),
@@ -441,6 +443,7 @@ db.once("open", async () => {
       name: "Generic Shiba Inu",
       currentHealth: 15,
       maxHealth: 20,
+      isBoss: false,
       intents: {
         attack: randomVal(2, 4),
         block: randomVal(2, 6),
@@ -450,6 +453,7 @@ db.once("open", async () => {
       name: "Crypto Punk",
       currentHealth: randomVal(5, 20),
       maxHealth: 20,
+      isBoss: false,
       intents: {
         attack: randomVal(2, 4),
         block: randomVal(2, 6),
@@ -459,6 +463,7 @@ db.once("open", async () => {
       name: "Over Priced Cat PNG",
       currentHealth: randomVal(15, 20),
       maxHealth: 34,
+      isBoss: false,
       intents: {
         attack: randomVal(2, 6),
         block: randomVal(2, 6),
@@ -468,6 +473,7 @@ db.once("open", async () => {
       name: "An Egg????",
       currentHealth: randomVal(5, 15),
       maxHealth: 13,
+      isBoss: false,
       intents: {
         attack: randomVal(1, 4),
         block: randomVal(2, 4),
@@ -477,9 +483,100 @@ db.once("open", async () => {
       name: "Totally Unique JPEG",
       currentHealth: randomVal(5, 10),
       maxHealth: 10,
+      isBoss: false,
       intents: {
         attack: randomVal(1, 3),
         block: randomVal(2, 7),
+      },
+    },
+    {
+      name: "Crypto Blob",
+      currentHealth: randomVal(6, 10),
+      maxHealth: 10,
+      isBoss: false,
+      intents: {
+        attack: randomVal(1, 6),
+        block: randomVal(2, 7)
+      },
+    },
+    {
+      name: "Generic Crypto Coin",
+      currentHealth: randomVal(3, 15),
+      maxHealth: 15,
+      isBoss: false,
+      intents: {
+        attack: randomVal(1, 7),
+        block: randomVal(2, 7)
+      },
+    },
+    {
+      name: "Crypto Enemy 153",
+      currentHealth: randomVal(3, 15),
+      maxHealth: 20,
+      isBoss: false,
+      intents: {
+        attack: randomVal(1, 3),
+        block: randomVal(2, 7)
+      },
+    },
+    {
+      name: "Unknown Twitter NFT Bro",
+      currentHealth: randomVal(5, 15),
+      maxHealth: 7,
+      isBoss: false,
+      intents: {
+        attack: randomVal(1, 6),
+        block: randomVal(3, 8)
+      },
+    },
+    {
+      name: "Mysterious NFT Image",
+      currentHealth: randomVal(2, 8),
+      maxHealth: 14,
+      isBoss: false,
+      intents: {
+        attack: randomVal(1, 3),
+        block: randomVal(2, 7)
+      },
+    },
+    {
+      name: "NFT Mega Collector",
+      currentHealth: randomVal(7, 17),
+      maxHealth: 20,
+      isBoss: false,
+      intents: {
+        attack: randomVal(3, 8),
+        block: randomVal(1, 3)
+      },
+    },
+    {
+      name: "The Bored Ape",
+      currentHealth: randomVal(20, 56),
+      isBoss: true,
+      maxHealth: 50,
+      intents: {
+        attack: randomVal(1, 7),
+        block: randomVal(2, 10)
+      },
+    },
+    {
+      name: "The Zucc",
+      currentHealth: randomVal(20, 60),
+      isBoss: true,
+      maxHealth: 60,
+      intents: {
+        attack: randomVal(5, 20),
+        block: randomVal(5, 25)
+      },
+    },
+    {
+      name: "Elon Musk's Crypto Wallet",
+      currentHealth: randomVal(28, 40),
+      isBoss: true,
+      maxHealth: 25,
+      intents: {
+        attack: randomVal(5, 25),
+        block: randomVal(1, 30)
       },
     },
   ]);
