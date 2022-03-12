@@ -3,8 +3,8 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_PLAYER } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
-import { QUERY_PLAYER } from '../utils/queries';
-import { useQuery } from '@apollo/client';
+//import { QUERY_PLAYER } from '../utils/queries';
+//import { useQuery } from '@apollo/client';
 
 import '../assets/page-css/auth.css'
 
@@ -25,24 +25,30 @@ function Login () {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        try {
-            const { data } = await login({
-                variables: { ...formState },
-            });
+    try {
+      const mutationResponse = await login({
+        variables: {
+          email: formState.email,
+          password: formState.password,
+        },
+      });
 
-            Auth.login(data.login.token);
-        }   catch (e) {
-            console.error(e);
-        }
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.error(e);
+    }
 
-        // clear form values
-        setFormState({
-            email: '',
-            password: '',
-        });
-    };
+    // clear form values
+     setFormState({
+   
+     email: "",
+     password: "",
+     });
+  };
 
-    return (
+  return (
+
     <main>
         <div>
             <div>

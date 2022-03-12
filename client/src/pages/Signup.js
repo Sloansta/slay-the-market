@@ -26,29 +26,32 @@ function Signup () {
         });
     };
 
-    // submit form
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+   
 
-        try {
-            console.log("try 1");
-            const mutationResponse = await addPlayer({
-                variables: { 
-                    userName: formState.userName,
-                    email: formState.email,
-                    password: formState.password
-                 },
-            });
-            console.log("try 1.5");
-            const token = mutationResponse.data.addPlayer.token;
-            console.log("try 2");
-            Auth.login(token);
-            console.log("try 3");
-        } catch (e) {
-            console.error(e);
-            console.log( { ...formState } )
-        }
-    };
+    try {
+     
+      const mutationResponse = await addPlayer({
+        variables: {
+          userName: formState.userName,
+          email: formState.email,
+          password: formState.password,
+     
+        },
+      });
+     
+      const token = mutationResponse.data.addPlayer.token;
+     
+      Auth.login(token);
+    
+    } catch (e) {
+      console.error(e);
+      console.log({ ...formState });
+    }
+  };
+
 
     return (
         <main>
