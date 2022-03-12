@@ -1,4 +1,4 @@
-// id username password email currentHealth maxHealth deck
+// id userName password email currentHealth maxHealth deck
 
 const mongoose = require("mongoose");
 

@@ -9,7 +9,7 @@ import '../assets/page-css/auth.css'
 function Signup () {
 
     const [formState, setFormState] = useState({
-        username: '',
+        userName: '',
         email: '',
         password: '',
     });
@@ -31,13 +31,22 @@ function Signup () {
         event.preventDefault();
 
         try {
-            const { data } = await addPlayer({
-                variables: { ...formState },
+            console.log("try 1");
+            const mutationResponse = await addPlayer({
+                variables: { 
+                    userName: formState.userName,
+                    email: formState.email,
+                    password: formState.password
+                 },
             });
-
-            Auth.login(data.addPlayer.token);
+            console.log("try 1.5");
+            const token = mutationResponse.data.addPlayer.token;
+            console.log("try 2");
+            Auth.login(token);
+            console.log("try 3");
         } catch (e) {
             console.error(e);
+            console.log( { ...formState } )
         }
     };
 
@@ -46,10 +55,10 @@ function Signup () {
             {/* <h4>Sign Up</h4> */}
             <form onSubmit={handleFormSubmit}>
                 <input
-                    placeholder="Your username"
-                    name="username"
-                    type="username"
-                    value={formState.username}
+                    placeholder="Your userName"
+                    name="userName"
+                    type="userName"
+                    value={formState.userName}
                     onChange={handleChange}
                 />
                 <input
