@@ -61,7 +61,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addEnemy(name: String!, currentHealth: Int!, maxHealth: Int!): Enemy
+        addEnemy(name: String!, currentHealth: Int!, maxHealth: Int!, isBoss: Boolean!): Enemy
         addPlayer(userName: String!, email: String!, password: String!): Player
         upgradeCard(_id: ID, name: String!, class: String!, value: Int!): Card
         login(email: String!, password: String!): Auth
