@@ -19,7 +19,7 @@ const stockSchema = new Schema({
     type: Number,
     required: true,
   },
-  precentChange: {
+  percentChange: {
     type: Number,
     required: true,
   },

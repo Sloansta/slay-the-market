@@ -19,6 +19,7 @@ const typeDefs = gql`
         currentHealth: Int
         maxHealth: Int
         intents: [String]
+        isBoss: Boolean
     }
 
     type Player {
@@ -65,6 +66,7 @@ const typeDefs = gql`
         upgradeCard(_id: ID, name: String!, class: String!, value: Int!): Card
         login(email: String!, password: String!): Auth
         addStock(_id: ID!, name: String!, symbol: String!, quote: Float!, candleTrend: Float!): Stock
+        upgradeStock(_id: ID!, name: String!, symbol: String!, quote: Float!, percentChanged: Float!): Stock
     }
 `;
 

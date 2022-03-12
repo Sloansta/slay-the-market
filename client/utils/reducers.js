@@ -1,11 +1,16 @@
 import {
-    UPDATE_CARDS,
     UPDATE_DECK,
     LOSE_HEALTH,
     GAIN_HEALTH,
     UPGRADE_CARD,
-    CREATE_ROOM
+    CREATE_ROOM,
+    DISCARD,
+    ADD_TO_DECK,
+    SHUFFLE_DECK,
+    IS_ALIVE
 } from './actions';
+
+import { isAlive, reduceHealth, gainHealth } from './helpers';
 
 import { useReducer } from 'react';
 
@@ -13,19 +18,24 @@ export const reducer = (state, action) => {
     switch (action.type) {
         case LOSE_HEALTH:
             return {
-
+                ...state,
+                currentHealth: reduceHealth(currentHealth, attackDmg)
             };
         case GAIN_HEALTH:
             return {
-
+                ...state,
+                currentHealth: gainHealth(currentHealth)
             };
-        case UPDATE_CARDS:
+        case IS_ALIVE:
+            // let newState = 
             return {
-
+                ...state,
+                isAlive: isAlive(currentHealth, action.isAlive)
             };
         case UPDATE_DECK:
             return {
-
+                ...state,
+                deck: [...action.deck]
             };
         case UPGRADE_CARD:
             return {
@@ -35,6 +45,24 @@ export const reducer = (state, action) => {
             return {
 
             };
+        case DISCARD:
+            return {
+                ...state,
+                discardPile: [...state.discardPile, action.card]
+            };
+        case ADD_TO_DECK:
+            return {
+                ...state,
+                deck: [...state.deck, action.card]
+            };
+        case REMOVE_FROM_DECK:
+            let newState = state.deck.filter(card => {
+                return card._id !== action._id;
+            });
+            return {
+                ...state,
+                deck: newState
+            }
         default:
             return state
     }

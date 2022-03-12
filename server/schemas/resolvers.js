@@ -1,6 +1,8 @@
 const { AuthenticationError, ReplaceFieldWithFragment, UserInputError } = require('apollo-server-express');
 const { Card, Enemy, Player, Room, Stock } = require('../models');
 const { signToken } = require('../utils/auth');
+const updateStocks = require('../utils/stockUpdate');
+const upgradeStock = require('../utils/stockUpdate');
 // const stripe = require('stripe');
 
 const resolvers = {
@@ -128,6 +130,28 @@ const resolvers = {
             
             throw new AuthenticationError('Stock could not be added');
         },
+
+        //TODO: Because we are changing values within the callback function, it is likely that this will return undefined
+        // need to find a way to fix this if this is the case 
+        /*upgradeStock: async (data) => {
+            let upgradedStock;
+
+            updateStocks(data.symbol, (current, change) => {
+                if(change > 0 && !change <= 0) {
+                    upgradedStock = await Stock.findOneAndUpdate(
+                        {_id: data._id},
+                        {name: data.name},
+                        {symbol: data.symbol},
+                        {quote: current},
+                        {percentChange: change}
+                    );
+
+                    return upgradedStock;
+
+                }
+            });
+
+        },*/
 
         // validates user and logs them in
         login: async ({ email, password }) => {
