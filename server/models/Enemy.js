@@ -7,12 +7,11 @@ const enemySchema = new Schema({
         type: String,
         required: true,
         trim: true
-
     },
-    // isBoss: {
-    //     type: Boolean,
-    //     required: true,
-    // },
+    isBoss: {
+        type: Boolean,
+        required: true,
+    },
     currentHealth: {
         type: Number,
         required: true
@@ -21,17 +20,9 @@ const enemySchema = new Schema({
         type: Number,
         required: true
     },
-    // TODO: 
-    // I am not positive what this will look like
-    // so making it an array for now
     intents: {
         type: Array
     },
-
-    isBoss: {
-        type: Boolean,
-        required: true
-    }
 
 });
 
