@@ -15,7 +15,7 @@ const playerSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!']
+    match: [/.+@.+\..+/, "Must match an email address!"],
   },
   password: {
     type: String,
@@ -25,12 +25,14 @@ const playerSchema = new Schema({
   maxHealth: {
     type: Number,
     required: true,
+    default: 100,
   },
   currentHealth: {
     type: Number,
     required: true,
+    default: 100,
   },
-  
+
   deck: [
     {
       type: Schema.Types.ObjectId,
