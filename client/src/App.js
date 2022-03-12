@@ -5,11 +5,10 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Player from './pages/Player';
-import Cave from './pages/Cave';
-import Forest from './pages/Forest';
 import TestRoom from './pages/TestRoom';
 
 import NoMatch from './pages/NoMatch';
+import { QUERY_PLAYER } from '../utils/queries';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -39,8 +38,6 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Player" component={Player} />
-          <Route exact path="/Cave" component={Cave} />
-          <Route exact path="/Forest" component={Forest} />
           <Route exact path="/TestRoom" component={TestRoom} />
 
           <Route component={NoMatch} />

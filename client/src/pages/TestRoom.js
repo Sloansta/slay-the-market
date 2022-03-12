@@ -1,9 +1,13 @@
 import React from 'react';
 
+import Player from './Player';
+import Cave from '../components/Cave';
+
 function TestRoom () {
     return (
         <section>
-            <h2>This is a TestRoom</h2>
+            <Player />
+            <Cave />
         </section>
     )
 }
