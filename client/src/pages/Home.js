@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../App.css';
 import '../assets/page-css/home.css';
@@ -22,9 +23,11 @@ function Home () {
                         <Signup />
                     </div>
                 }
+                <Link to={`/Player`}>
                 <button className='start'>
                     Start Game
                 </button>
+                </Link>
 
             </section>
 
