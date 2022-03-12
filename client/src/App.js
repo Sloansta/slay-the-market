@@ -1,18 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ApolloProvider, inMemoryCache, createHttpLink, ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloProvider, createHttpLink, ApolloClient, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+
+
 import Home from './pages/Home';
+import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Player from './pages/Player';
-import Cave from './pages/Cave';
-import Forest from './pages/Forest';
 import TestRoom from './pages/TestRoom';
-
 import NoMatch from './pages/NoMatch';
 
 const httpLink = createHttpLink({
-  uri: '/graphql'
+  uri: 'http://localhost:3001/graphql'
 });
 
 // add authLink / token retrieval (NOT NEEDED TO PLAY GAME)
@@ -37,10 +37,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/Signup" component={Signup} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Player" component={Player} />
-          <Route exact path="/Cave" component={Cave} />
-          <Route exact path="/Forest" component={Forest} />
           <Route exact path="/TestRoom" component={TestRoom} />
 
           <Route component={NoMatch} />
