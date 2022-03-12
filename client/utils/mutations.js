@@ -19,12 +19,12 @@ export const LOGIN = gql`
 
 export const ADD_PLAYER = gql`
     mutation addPlayer(
-        $username: String!
+        $userName: String!
         $email: String!
         $password: String!
     ) {
         addPlayer(
-            username: $username
+            userName: $userName
             email: $email
             password: $password
         ) {

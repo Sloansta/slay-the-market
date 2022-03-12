@@ -19,10 +19,11 @@ const typeDefs = gql`
         currentHealth: Int
         maxHealth: Int
         intents: [String]
+        isBoss: Boolean
     }
 
     type Player {
-        username: String
+        userName: String
         email: String
         password: String
         maxHealth: Int
@@ -60,11 +61,12 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addEnemy(name: String!, currentHealth: Int!, maxHealth: Int!): Enemy
-        addPlayer(username: String!, email: String!, password: String!): Player
+        addEnemy(name: String!, currentHealth: Int!, maxHealth: Int!, isBoss: Boolean!): Enemy
+        addPlayer(userName: String!, email: String!, password: String!): Player
         upgradeCard(_id: ID, name: String!, class: String!, value: Int!): Card
         login(email: String!, password: String!): Auth
         addStock(_id: ID!, name: String!, symbol: String!, quote: Float!, candleTrend: Float!): Stock
+        upgradeStock(_id: ID!, name: String!, symbol: String!, quote: Float!, percentChanged: Float!): Stock
     }
 `;
 

@@ -31,7 +31,7 @@ export const QUERY_ALL_ENEMIES = gql`
 export const QUERY_PLAYER = gql`
     {
         player {
-            username
+            userName
             email
             maxHealth
             currentHealth
