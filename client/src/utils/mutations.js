@@ -1,24 +1,22 @@
 import { gql } from '@apollo/client';
 
-// login an existing user, currently uses email to login (maybe change to just username instead?)
+// login an existing user, currently uses email to login (maybe change to just userName instead?)
 export const LOGIN_PLAYER = gql`
     mutation login($email: String!, $password: String!) {
         login(email: $email, password: $password)
             token
-            user {
+            player {
                 _id
-                username
             }
     }
 `;
 
 export const ADD_PLAYER = gql`
-    mutation addPlayer($username: String!, $email: String!, $password: String!) {
-        addPlayer(username: $username, email: $email, password: $password) {
+    mutation addPlayer($userName: String!, $email: String!, $password: String!) {
+        addPlayer(userName: $userName, email: $email, password: $password) {
             token
-            user {
+            player {
                 _id
-                username
             }
         }
     }

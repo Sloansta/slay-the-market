@@ -1,6 +1,8 @@
 const { AuthenticationError, ReplaceFieldWithFragment, UserInputError } = require('apollo-server-express');
-const { Card, Enemy, Player, Room } = require('../models');
+const { Card, Enemy, Player, Room, Stock } = require('../models');
 const { signToken } = require('../utils/auth');
+const updateStocks = require('../utils/stockUpdate');
+const upgradeStock = require('../utils/stockUpdate');
 // const stripe = require('stripe');
 
 const resolvers = {
@@ -80,9 +82,12 @@ const resolvers = {
 
         // creates a new player, with validation
         addPlayer: async (parent, args) => {
+            console.log("console log inside addPlayer");
             const player = await Player.create(args);
-            if(!player)
-                throw new AuthenticationError('Something went wrong when attempting to create account');
+            // if(!player)
+            //     throw new AuthenticationError('Something went wrong when attempting to create account');
+
+            console.log(player);
 
             const token = signToken(player);
 
@@ -110,8 +115,46 @@ const resolvers = {
             throw new AuthenticationError('Something went wrong when updating the card');
         },
 
+        // adding stock, this will add data based on what
+        addStock: async (data) => {
+            const newStock = await Stock.create({
+                id: data._id,
+                name: data.name,
+                symbol: data.symbol,
+                quote: data.quote,
+                percentChange: data.percentChange
+            });
+
+            if(newStock)
+                return newStock;
+            
+            throw new AuthenticationError('Stock could not be added');
+        },
+
+        //TODO: Because we are changing values within the callback function, it is likely that this will return undefined
+        // need to find a way to fix this if this is the case 
+       /*  upgradeStock: async (data) => {
+            let upgradedStock;
+
+            updateStocks(data.symbol, (current, change) => {
+                if(change > 0 && !change <= 0) {
+                    upgradedStock = await Stock.findOneAndUpdate(
+                        {_id: data._id},
+                        {name: data.name},
+                        {symbol: data.symbol},
+                        {quote: current},
+                        {percentChange: change}
+                    );
+
+                    return upgradedStock;
+
+                }
+            });
+
+        },*/
+
         // validates user and logs them in
-        login: async (parent, { email, password }) => {
+        login: async ({ email, password }) => {
             const player = await Player.findOne({ email });
 
             if(!player)

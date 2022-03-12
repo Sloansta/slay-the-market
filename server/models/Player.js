@@ -1,4 +1,4 @@
-// id username password email currentHealth maxHealth deck
+// id userName password email currentHealth maxHealth deck
 
 const mongoose = require("mongoose");
 
@@ -15,6 +15,7 @@ const playerSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!']
   },
   password: {
     type: String,
@@ -30,19 +31,17 @@ const playerSchema = new Schema({
     required: true,
   },
   // Might use an array of card names??
-  deck: {
-    type: Array,
-  },
+  // deck: {
+  //   type: Array,
+  // },
   // We might need to do an array of subdocuments
-  /*  
-  deck: [
-      {
-          type: Schema.Types.ObjectId,
-          ref: 'Card'
-      }
-  ]
 
-  */
+  deck: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Card",
+    },
+  ],
 });
 
 // set up pre-save middleware to create password
