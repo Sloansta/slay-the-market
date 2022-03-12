@@ -25,20 +25,25 @@ function Login() {
     event.preventDefault();
 
     try {
-      const { data } = await login({
-        variables: { ...formState },
+      const mutationResponse = await login({
+        variables: {
+          email: formState.email,
+          password: formState.password,
+        },
       });
 
-      Auth.login(data.login.token);
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
     } catch (e) {
       console.error(e);
     }
 
     // clear form values
-    setFormState({
-      email: "",
-      password: "",
-    });
+    // setFormState({
+    // TODO: TURN THIS BACK ON
+    // email: "",
+    // password: "",
+    // });
   };
 
   return (

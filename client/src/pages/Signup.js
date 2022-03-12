@@ -27,28 +27,23 @@ function Signup() {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    //debugger;
+   
 
     try {
-      console.log("try 1");
+     
       const mutationResponse = await addPlayer({
         variables: {
-          //  userName: formState.userName,
-          //  email: formState.email,
-          //  password: formState.password,
-          userName: "dummy",
-          email: "dummy@dummy.com",
-          password: "pass12344",
-          maxHealth: 100,
-          currentHealth: 100,
-          deck: [],
+          userName: formState.userName,
+          email: formState.email,
+          password: formState.password,
+     
         },
       });
-      console.log("try 1.5");
+     
       const token = mutationResponse.data.addPlayer.token;
-      console.log("try 2");
+     
       Auth.login(token);
-      console.log("try 3");
+    
     } catch (e) {
       console.error(e);
       console.log({ ...formState });

@@ -78,13 +78,13 @@ const resolvers = {
 
     // creates a new player, with validation
     addPlayer: async (parent, args) => {
-      console.log("Args from addPlayer", args);
-      console.log("console log inside addPlayer");
+      // console.log("Args from addPlayer", args);
+      // console.log("console log inside addPlayer");
       const player = await Player.create(args);
       // if(!player)
       //     throw new AuthenticationError('Something went wrong when attempting to create account');
 
-      console.log(player);
+      // console.log(player);
 
       const token = signToken(player);
 
@@ -153,7 +153,7 @@ const resolvers = {
         },*/
 
     // validates user and logs them in
-    login: async ({ email, password }) => {
+    login: async (parent, { email, password }) => {
       const player = await Player.findOne({ email });
 
       if (!player) throw new AuthenticationError("Incorrect credentials");
