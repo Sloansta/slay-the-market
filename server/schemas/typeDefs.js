@@ -18,7 +18,7 @@ const typeDefs = gql`
         name: String
         currentHealth: Int
         maxHealth: Int
-        intents: Int
+        intents: [String]
         isBoss: Boolean
     }
 
@@ -62,7 +62,7 @@ const typeDefs = gql`
 
     type Mutation {
         addEnemy(name: String!, currentHealth: Int!, maxHealth: Int!, isBoss: Boolean!): Enemy
-        addPlayer(userName: String!, email: String!, password: String!): Player
+        addPlayer(userName: String!, email: String!, password: String!): Auth
         upgradeCard(_id: ID, name: String!, class: String!, value: Int!): Card
         login(email: String!, password: String!): Auth
         addStock(_id: ID!, name: String!, symbol: String!, quote: Float!, candleTrend: Float!): Stock
