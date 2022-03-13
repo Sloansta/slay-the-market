@@ -77,14 +77,14 @@ const resolvers = {
     // will fix according to the needs of the frontend
 
     // creates a new player, with validation
-    addPlayer: async (parent, args) => {
+    addPlayer: async (parent, {userName, email, password}) => {
       // console.log("Args from addPlayer", args);
       // console.log("console log inside addPlayer");
       const player = await Player.create(
         {
-          userName: args.userName,
-          email: args.email,
-          password: args.password,
+          userName: userName,
+          email: email,
+          password: password,
           maxHealth: 100,
           currentHealth: 90,
           deck: [
