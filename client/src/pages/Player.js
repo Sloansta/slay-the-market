@@ -10,14 +10,11 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PLAYER } from '../utils/queries';
 
 function Player () {
-    const { data: player } = useQuery(QUERY_PLAYER);
-    // const { maxHealth, userName, email } = player;
+    const { data, player } = useQuery(QUERY_PLAYER);
+
+    console.log(player);
 
     const loggedIn = Auth.loggedIn();
-
-    console.log(useQuery(QUERY_PLAYER));
-
-    // console.log(userName);
     return (
         <section>
 
