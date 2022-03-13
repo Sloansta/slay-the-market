@@ -77,10 +77,30 @@ const resolvers = {
     // will fix according to the needs of the frontend
 
     // creates a new player, with validation
-    addPlayer: async (parent, args) => {
+    addPlayer: async (parent, {userName, email, password}) => {
       // console.log("Args from addPlayer", args);
       // console.log("console log inside addPlayer");
-      const player = await Player.create(args);
+      const player = await Player.create(
+        {
+          userName: userName,
+          email: email,
+          password: password,
+          maxHealth: 100,
+          currentHealth: 90,
+          deck: [
+            Card.findOne({id: randomVal(0, 13)}),
+            Card.findOne({id: randomVal(0, 13)}),
+            Card.findOne({id: randomVal(0, 13)}),
+            Card.findOne({id: randomVal(0, 13)}),
+            Card.findOne({id: randomVal(0, 13)}),
+            Card.findOne({id: randomVal(40, 45)}),
+            Card.findOne({id: randomVal(40, 45)}),
+            Card.findOne({id: randomVal(40, 45)}),
+            Card.findOne({id: randomVal(40, 45)}),
+            Card.findOne({id: randomVal(60, 63)}),
+          ]
+        }
+      );
       // if(!player)
       //     throw new AuthenticationError('Something went wrong when attempting to create account');
 
@@ -168,5 +188,9 @@ const resolvers = {
     },
   },
 };
+
+function randomVal(min, max) {
+  return Math.floor(Math.random() * (min - max)) + min;
+}
 
 module.exports = resolvers;
