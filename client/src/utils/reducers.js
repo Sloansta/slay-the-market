@@ -7,7 +7,8 @@ import {
     DISCARD,
     ADD_TO_DECK,
     SHUFFLE_DECK,
-    IS_ALIVE
+    IS_ALIVE,
+    REMOVE_FROM_DECK
 } from './actions';
 
 import { isAlive, reduceHealth, gainHealth } from './helpers';
@@ -19,18 +20,18 @@ export const reducer = (state, action) => {
         case LOSE_HEALTH:
             return {
                 ...state,
-                currentHealth: reduceHealth(currentHealth, attackDmg)
+                // currentHealth: reduceHealth()
             };
         case GAIN_HEALTH:
             return {
                 ...state,
-                currentHealth: gainHealth(currentHealth)
+                // currentHealth: gainHealth()
             };
         case IS_ALIVE:
             // let newState = 
             return {
                 ...state,
-                isAlive: isAlive(currentHealth, action.isAlive)
+                // isAlive: isAlive(action.isAlive)
             };
         case UPDATE_DECK:
             return {

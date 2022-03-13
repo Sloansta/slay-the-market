@@ -1,4 +1,6 @@
-const Cards = [
+// dummy play, card and enemy data for testing gameplay elements
+// import into components
+const dummyCards = [
     {
         name: 'card1',
         value: 6
@@ -29,22 +31,22 @@ const Cards = [
     }
 ];
 
-const Player = {
+const dummyPlayer = {
     userName: 'testName',
     maxHealth: 100,
     currentHealth: 90,
     deck: [
-        Cards[0],
-        Cards[1],
-        Cards[2],
-        Cards[3],
-        Cards[4],
-        Cards[5],
-        Cards[6]
+        dummyCards[0],
+        dummyCards[1],
+        dummyCards[2],
+        dummyCards[3],
+        dummyCards[4],
+        dummyCards[5],
+        dummyCards[6]
     ]
 };
 
-const Enemy = {
+const dummyEnemy = {
     currentHealth: 30,
     maxHealth: 40,
     isBoss: false,
@@ -52,4 +54,4 @@ const Enemy = {
     block: 12
 }
 
-export default { Cards, Player, Enemy }
+export { dummyCards, dummyPlayer, dummyEnemy }
