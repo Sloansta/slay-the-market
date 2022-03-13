@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Nav from '../components/Nav';
 import Icon from '../components/Icon';
@@ -10,19 +10,16 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PLAYER, QUERY_ALL_CARDS } from '../utils/queries';
 
 function Player () {
-    const { data: playerData } = useQuery(QUERY_PLAYER);
-    const { data: cardData } = useQuery(QUERY_ALL_CARDS);
-
+    const { data } = useQuery(QUERY_PLAYER);
     const loggedIn = Auth.loggedIn();
 
-    console.log('player data: ' + playerData);
-    console.log('card data: ' + cardData);
-
+    console.log(data);
     return (
-        <section>           
+        <section>
 
             <footer>
-            {/* {loggedIn && playerData ? ( */}
+            {loggedIn && (
+
                 <div>
                     <div>
                         <Nav />
@@ -37,8 +34,7 @@ function Player () {
                     </div>
                 </div>
 
-
-            {/* ): null} */}
+            )} 
             </footer>
 
         </section>

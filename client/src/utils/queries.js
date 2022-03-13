@@ -23,7 +23,9 @@ export const QUERY_ALL_ENEMIES = gql`
             name
             currentHealth
             maxHealth
-            intents
+            attack
+            block
+            isBoss
         }
     }
 `;
