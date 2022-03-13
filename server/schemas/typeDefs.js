@@ -30,7 +30,7 @@ const typeDefs = gql`
     password: String
     maxHealth: Int
     currentHealth: Int
-    deck: [Card]
+    cards: [Card]
   }
 
   type Stock {
@@ -53,7 +53,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    cards: [Card]
+    cards(_id: ID, name: String): [Card]
     card(_id: ID, name: String): Card
     enemies: [Enemy]
     enemy(enemy: ID, name: String): Enemy

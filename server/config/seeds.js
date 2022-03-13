@@ -574,7 +574,7 @@ db.once("open", async () => {
     password: "password12345",
     maxHealth: 100,
     currentHealth: 90,
-    deck: [
+    cards: [
       cards[5]._id,
       cards[6]._id,
       cards[7]._id,
@@ -594,7 +594,7 @@ db.once("open", async () => {
     password: "password12345",
     maxHealth: 100,
     currentHealth: 90,
-    deck: [
+    cards: [
       cards[0]._id,
       cards[1]._id,
       cards[2]._id,

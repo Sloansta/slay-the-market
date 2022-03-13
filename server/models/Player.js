@@ -33,7 +33,7 @@ const playerSchema = new Schema({
     default: 100,
   },
 
-  deck: [
+  cards: [
     {
       type: Schema.Types.ObjectId,
       ref: "Card",
