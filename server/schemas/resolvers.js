@@ -85,8 +85,8 @@ const resolvers = {
           userName: args.userName,
           email: args.email,
           password: args.password,
-          currentHealth: 100,
           maxHealth: 100,
+          currentHealth: 90,
           deck: [
             Card.findOne({id: randomVal(0, 13)}),
             Card.findOne({id: randomVal(0, 13)}),
