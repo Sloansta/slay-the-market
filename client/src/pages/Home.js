@@ -9,7 +9,6 @@ import Auth from '../utils/auth';
 import Login from './Login';
 import Signup from './Signup';
 
-
 function Home () {
     const loggedIn = Auth.loggedIn();
 
@@ -17,7 +16,7 @@ function Home () {
         <section>
             <h2>Welcome to Slay the Market!</h2>
             <section className='auth-box'>
-                {!loggedIn && 
+                {!loggedIn &&
                     <div>
                         <Login />
                         <Signup />
