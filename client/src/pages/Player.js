@@ -7,13 +7,17 @@ import Card from '../components/Card';
 import Auth from '../utils/auth';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_PLAYER, QUERY_ALL_CARDS } from '../utils/queries';
+import { QUERY_PLAYER } from '../utils/queries';
 
 function Player () {
-    const { data } = useQuery(QUERY_PLAYER);
+    const { data: player } = useQuery(QUERY_PLAYER);
+    // const { maxHealth, userName, email } = player;
+
     const loggedIn = Auth.loggedIn();
 
-    console.log(data);
+    console.log(useQuery(QUERY_PLAYER));
+
+    // console.log(userName);
     return (
         <section>
 

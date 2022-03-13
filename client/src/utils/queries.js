@@ -37,7 +37,6 @@ export const QUERY_PLAYER = gql`
             email
             maxHealth
             currentHealth
-            deck
         }
     }
 `;
