@@ -23,6 +23,7 @@ const typeDefs = gql`
     }
 
     type Player {
+        _id: ID
         userName: String
         email: String
         password: String
