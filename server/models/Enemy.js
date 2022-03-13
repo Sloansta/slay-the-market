@@ -20,9 +20,14 @@ const enemySchema = new Schema({
         type: Number,
         required: true
     },
-    intents: {
-        type: Array
+    attack: {
+        type: Number,
+        required: true
     },
+    block: {
+        type: Number,
+        required: true
+    }
 
 });
 
