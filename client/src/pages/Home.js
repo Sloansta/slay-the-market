@@ -24,9 +24,9 @@ function Home () {
                     </div>
                 }
                 <Link to={`/Player`}>
-                <button className='start'>
-                    Start Game
-                </button>
+                    <button className='start'>
+                        Start Game
+                    </button>
                 </Link>
 
             </section>
