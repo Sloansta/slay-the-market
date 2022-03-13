@@ -46,9 +46,10 @@ const resolvers = {
     player: async (parent, args, context) => {
       if (context.player) {
         const player = await Player.findById(context.player._id).populate({
-          path: "player.deck",
+          path: "player.cards",
           populate: "cards",
         });
+        console.log("Player: ", player);
 
         return player;
       }
@@ -77,30 +78,17 @@ const resolvers = {
     // will fix according to the needs of the frontend
 
     // creates a new player, with validation
-    addPlayer: async (parent, {userName, email, password}) => {
+    addPlayer: async (parent, { userName, email, password }) => {
       // console.log("Args from addPlayer", args);
       // console.log("console log inside addPlayer");
-      const player = await Player.create(
-        {
-          userName: userName,
-          email: email,
-          password: password,
-          maxHealth: 100,
-          currentHealth: 90,
-          deck: [
-            Card.findOne({id: randomVal(0, 13)}),
-            Card.findOne({id: randomVal(0, 13)}),
-            Card.findOne({id: randomVal(0, 13)}),
-            Card.findOne({id: randomVal(0, 13)}),
-            Card.findOne({id: randomVal(0, 13)}),
-            Card.findOne({id: randomVal(40, 45)}),
-            Card.findOne({id: randomVal(40, 45)}),
-            Card.findOne({id: randomVal(40, 45)}),
-            Card.findOne({id: randomVal(40, 45)}),
-            Card.findOne({id: randomVal(60, 63)}),
-          ]
-        }
-      );
+      const player = await Player.create({
+        userName: userName,
+        email: email,
+        password: password,
+        maxHealth: 100,
+        currentHealth: 90,
+        deck: [],
+      });
       // if(!player)
       //     throw new AuthenticationError('Something went wrong when attempting to create account');
 
