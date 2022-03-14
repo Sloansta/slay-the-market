@@ -8,6 +8,7 @@ import {
     ADD_TO_DECK,
     SHUFFLE_DECK,
     IS_ALIVE,
+    POPULATE_CARDS,
     REMOVE_FROM_DECK
 } from './actions';
 
@@ -62,7 +63,13 @@ export const reducer = (state, action) => {
             });
             return {
                 ...state,
-                cards: newState
+                deck: newState
+            };
+
+        case POPULATE_CARDS: 
+            return {
+                ...state,
+                cards: [...action.cards]
             }
         default:
             return state
