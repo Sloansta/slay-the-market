@@ -5,17 +5,18 @@ import Icon from "../components/Icon";
 import Card from "../components/Card";
 
 import { useQuery } from "@apollo/client";
-import { QUERY_PLAYER, QUERY_ALL_CARDS } from "../utils/queries";
+import { QUERY_PLAYER } from "../utils/queries";
 
 function Player() {
   const { data } = useQuery(QUERY_PLAYER);
+
   let player;
   let health;
   if (data) {
     player = data.player.userName;
     health = data.player.maxHealth;
   }
-  
+
   return (
     <section>
       <footer>
