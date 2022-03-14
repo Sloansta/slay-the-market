@@ -69,7 +69,7 @@ export const reducer = (state, action) => {
         case POPULATE_CARDS: 
             return {
                 ...state,
-                rewards: [...state.cards]
+                cards: [...action.cards]
             }
         default:
             return state
