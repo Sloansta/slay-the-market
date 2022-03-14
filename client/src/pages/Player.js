@@ -12,6 +12,7 @@ function Player() {
 
   let player;
   let health;
+
   if (data) {
     player = data.player.userName;
     health = data.player.maxHealth;
@@ -31,7 +32,7 @@ function Player() {
 
             <div>
               <Card />
-              {data ? `${data.player.cards[0]._id}` : null}
+              {data ? `${data.player.cards.map( card => card._id)}` : null}
             </div>
           </div>
       </footer>
