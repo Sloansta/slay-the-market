@@ -187,21 +187,18 @@ let stockArray = [
 updatedStocks = [];
 
 function updateStocks() {
- 
   stockArray.forEach((element) => {
-  
     finnhubClient.quote(element.symbol, (error, data, response) => {
-      
       let tmpStock = [];
-    
+
       tmpStock.id = element.id;
       tmpStock.name = element.name;
       tmpStock.symbol = element.symbol;
       tmpStock.quote = data.c;
       tmpStock.percentChange = data.dp;
-     
+
       updatedStocks.push(tmpStock);
-      // console.log(updatedStocks);
+      console.log(updatedStocks);
       //   Stock.create([
       //     {
       //       id: element.id,
@@ -211,12 +208,8 @@ function updateStocks() {
       //       percentChange: data.dp,
       //     },
       //   ]);
-      
     });
-  
   });
-
- 
 }
 updateStocks();
 
