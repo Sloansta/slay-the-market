@@ -5,6 +5,7 @@ import '../App.css';
 import '../assets/page-css/home.css';
 
 import Auth from '../utils/auth';
+import { useGameContext } from '../utils/GlobalState';
 
 import Login from './Login';
 import Signup from './Signup';
@@ -18,7 +19,6 @@ import { useGameContext } from '../utils/GlobalState';
 import { POPULATE_CARDS } from '../utils/actions';
 
 function Home () {
-
     const [state, dispatch] = useGameContext();
 
     const player = useQuery(QUERY_PLAYER);

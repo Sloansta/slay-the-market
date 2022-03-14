@@ -8,6 +8,14 @@
   --red: #FF827A;
 }
 
+.player-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 @media only screen and (orientation:portrait) {
   body {
     height: 200vw;
