@@ -2,7 +2,7 @@ export function reduceHealth(health, dmg) {
     return health -= dmg;
 };
 
-export function gainHealth(health) {
+export function gainHealth(health, maxHealth) {
     health += 20;
 
     if (health >= maxHealth) {
@@ -42,6 +42,28 @@ export function useBlock(health, dmg, range) {
     health -= dmg;
 
     return health;
+}
+
+export function generateRoundData(player, cards, rooms) {
+    if(player.cards.length == 0) {
+        for(let i = 0; i < 10; i++) {
+            player.cards.push(cards[0, randomVal(1, cards.length)]);
+        }
+    }
+    
+    let selectedRooms = [];
+
+    for(let i = 0; i < 3; i++) {
+        selectedRooms.push(rooms[randomVal(0, rooms.length)]);
+    }
+
+    let roundInfo = {
+        playerInfo: player,
+        cardInfo: player.cards,
+        roomInfo: selectedRooms
+    };
+
+    return roundInfo;
 }
 
 

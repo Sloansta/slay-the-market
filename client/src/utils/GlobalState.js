@@ -9,6 +9,7 @@ const GameProvider = ({ value = [], ...props}) => {
         currentHealth: 100,
         maxHealth: 100,
         cards: [],
+        rewards: [],
         rooms: [],
         currentRoom: '',
         inCombat: false,

@@ -186,9 +186,9 @@ let stockArray = [
 ];
 updatedStocks = [];
 
-async function updateStocks() {
+function updateStocks() {
  
-  await stockArray.forEach((element) => {
+  stockArray.forEach((element) => {
   
     finnhubClient.quote(element.symbol, (error, data, response) => {
       
@@ -201,7 +201,7 @@ async function updateStocks() {
       tmpStock.percentChange = data.dp;
      
       updatedStocks.push(tmpStock);
-      // console.log(updatedStocks);
+      console.log(updatedStocks);
       //   Stock.create([
       //     {
       //       id: element.id,
@@ -215,6 +215,8 @@ async function updateStocks() {
     });
   
   });
+
+ 
 }
 updateStocks();
 

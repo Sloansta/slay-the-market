@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import '../App.css';
@@ -12,25 +12,26 @@ import Signup from './Signup';
 import { useQuery } from '@apollo/client';
 import { QUERY_PLAYER, QUERY_ALL_CARDS, QUERY_ROOMS } from '../utils/queries';
 
-function handleDataGeneration(player, cards, room) {
-
-    if(player.cards.length <= 0) {
-        // a test to see if a card will get added to the player data
-        // will finish getting this working tomorrow
-        player.cards.push(randomVal(0, cards.length));
-        console.log(room);
-    }
-}
+import { generateRoundData } from '../utils/helpers';
 
 function Home () {
     const player = useQuery(QUERY_PLAYER);
     const card = useQuery(QUERY_ALL_CARDS);
     const room = useQuery(QUERY_ROOMS);
+    
 
     
+    let roundInfo;
     console.log(player.data);
     console.log(card.data);
-    console.log(room.data);
+
+    try {
+        if(player.data && card.data)
+            roundInfo = generateRoundData(player.data.player, card.data.cards, room.data);
+        console.log(roundInfo);
+    } catch(e) {
+        console.log(e)
+    }
 
     const loggedIn = Auth.loggedIn();
 
@@ -45,7 +46,7 @@ function Home () {
                     </div>
                 }
                 <Link to={`/Player`}>
-                    <button className='start' onClick={handleDataGeneration}>
+                    <button className='start'>
                         Start Game
                     </button>
                 </Link>

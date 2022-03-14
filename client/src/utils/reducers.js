@@ -7,7 +7,8 @@ import {
     DISCARD,
     ADD_TO_DECK,
     SHUFFLE_DECK,
-    IS_ALIVE
+    IS_ALIVE,
+    POPULATE_CARDS
 } from './actions';
 
 import { isAlive, reduceHealth, gainHealth } from './helpers';
@@ -62,6 +63,12 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 deck: newState
+            };
+
+        case POPULATE_CARDS: 
+            return {
+                ...state,
+                rewards: [...state.cards]
             }
         default:
             return state
