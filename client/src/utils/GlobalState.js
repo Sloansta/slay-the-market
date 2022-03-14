@@ -14,7 +14,9 @@ const GameProvider = ({ value = [], ...props}) => {
         inCombat: false,
         isAlive: true,
         discardPile: [],
-        selectedCard: {}
+        selectedCard: {},
+        attackVal: 10,
+        blockVal: 0
     });
     return <Provider value={[state, dispatch]}{...props} />
 };

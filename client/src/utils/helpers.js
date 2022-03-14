@@ -2,7 +2,7 @@ export function reduceHealth(health, dmg) {
     return health -= dmg;
 };
 
-export function gainHealth(health) {
+export function gainHealth(health, maxHealth) {
     health += 20;
 
     if (health >= maxHealth) {
