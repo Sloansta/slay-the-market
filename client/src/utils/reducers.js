@@ -8,7 +8,11 @@ import {
     ADD_TO_DECK,
     SHUFFLE_DECK,
     IS_ALIVE,
+<<<<<<< HEAD
     POPULATE_CARDS
+=======
+    REMOVE_FROM_DECK
+>>>>>>> develop
 } from './actions';
 
 import { isAlive, reduceHealth, gainHealth } from './helpers';
@@ -20,23 +24,23 @@ export const reducer = (state, action) => {
         case LOSE_HEALTH:
             return {
                 ...state,
-                currentHealth: reduceHealth(currentHealth, attackDmg)
+                currentHealth: state.currentHealth
             };
         case GAIN_HEALTH:
             return {
                 ...state,
-                currentHealth: gainHealth(currentHealth)
+                currentHealth: gainHealth(...state.currentHealth, ...state.maxHealth)
             };
         case IS_ALIVE:
             // let newState = 
             return {
                 ...state,
-                isAlive: isAlive(currentHealth, action.isAlive)
+                isAlive: isAlive(...state.currentHealth, action.isAlive)
             };
         case UPDATE_DECK:
             return {
                 ...state,
-                deck: [...action.deck]
+                cards: [...action.cards]
             };
         case UPGRADE_CARD:
             return {
@@ -49,15 +53,15 @@ export const reducer = (state, action) => {
         case DISCARD:
             return {
                 ...state,
-                discardPile: [...state.discardPile, action.card]
+                discardPile: [...state.discardPile, action.selectedCard]
             };
         case ADD_TO_DECK:
             return {
                 ...state,
-                deck: [...state.deck, action.card]
+                cards: [...state.cards, action.selectedCard]
             };
         case REMOVE_FROM_DECK:
-            let newState = state.deck.filter(card => {
+            let newState = state.cards.filter(card => {
                 return card._id !== action._id;
             });
             return {

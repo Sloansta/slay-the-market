@@ -10,6 +10,7 @@ import Player from './pages/Player';
 import TestRoom from './pages/TestRoom';
 import NoMatch from './pages/NoMatch';
 import { useQuery } from '@apollo/client';
+import { GameProvider } from './utils/GlobalState';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql'
@@ -35,15 +36,17 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/Signup" component={Signup} />
-          <Route exact path="/Login" component={Login} />
-          <Route exact path="/Player" component={Player} />
-          <Route exact path="/TestRoom" component={TestRoom} />
+        <GameProvider>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/Signup" component={Signup} />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/Player" component={Player} />
+            <Route exact path="/TestRoom" component={TestRoom} />
 
-          <Route component={NoMatch} />
-        </Switch>
+            <Route component={NoMatch} />
+          </Switch>
+        </GameProvider>
       </Router>
     </ApolloProvider>
   );
