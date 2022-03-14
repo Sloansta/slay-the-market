@@ -8,11 +8,8 @@ import {
     ADD_TO_DECK,
     SHUFFLE_DECK,
     IS_ALIVE,
-<<<<<<< HEAD
-    POPULATE_CARDS
-=======
+    POPULATE_CARDS,
     REMOVE_FROM_DECK
->>>>>>> develop
 } from './actions';
 
 import { isAlive, reduceHealth, gainHealth } from './helpers';
