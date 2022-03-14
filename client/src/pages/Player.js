@@ -65,6 +65,7 @@ function Player() {
               <Nav />
             </div>
 
+
         <div className="player-info">
           <div>
             <Icon />
@@ -78,10 +79,6 @@ function Player() {
               End Turn
           </button>
         </div>
-
-
-
-
 
           </div>
       </footer>
