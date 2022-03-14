@@ -6,10 +6,15 @@ const { Provider } = GameContext;
 
 const GameProvider = ({ value = [], ...props}) => {
     const [state, dispatch] = useGameReducer({
+        userName: 'Temp Player',
         currentHealth: 100,
         maxHealth: 100,
+        hand: [],
         cards: [],
+        rewards: [],
         rooms: [],
+        enemies: [],
+        finalBoss: [],
         currentRoom: '',
         inCombat: false,
         isAlive: true,
@@ -24,9 +29,5 @@ const GameProvider = ({ value = [], ...props}) => {
 const useGameContext = () => {
     return useContext(GameContext);
 };
-
-const playerContext = createContext();
-
-const { playerInfo } = playerContext
 
 export { GameProvider, useGameContext };
