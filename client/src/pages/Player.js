@@ -12,19 +12,18 @@ import { QUERY_PLAYER, QUERY_ALL_CARDS } from "../utils/queries";
 function Player() {
   const { data } = useQuery(QUERY_PLAYER);
   let player;
+
   if (data) {
     player = data.player;
-    console.log("Player: ", player);
   } 
 
-  // const { cards, maxHealth, currentHealth } = player;
-  
   const loggedIn = Auth.loggedIn();
- // console.log(data);
+
+
   return (
     <section>
       <footer>
-        {/* {loggedIn && ( */}
+        {loggedIn && ( 
           <div>
             <div>
               <Nav />
@@ -33,15 +32,13 @@ function Player() {
             <div>
               <Icon />
             </div>
-            {data ? (
-              <div>
-              {data.player.cards.forEach((card) => (
-                <h1>{card.name}</h1>
-              ))}
-              </div>
-            ) : null}
+
+            <div>
+              <Card />
+              {data ? `${data.player.cards[0]._id}` : null}
+            </div>
           </div>
-        {/* // )} */}
+        )} 
       </footer>
     </section>
   );
