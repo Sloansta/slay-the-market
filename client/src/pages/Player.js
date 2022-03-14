@@ -6,8 +6,11 @@ import Card from "../components/Card";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_PLAYER } from "../utils/queries";
+import { playerContext } from '../utils/GlobalState';
 
 function Player() {
+  const [playerStats, setPlayerStats] = useState('');
+
   const { data } = useQuery(QUERY_PLAYER);
 
   let player;
@@ -27,7 +30,9 @@ function Player() {
             </div>
 
             <div>
-              <Icon username={player} health={health} />
+              <playerContext.Provider value={playerStats}>
+                <Icon />
+              </playerContext.Provider>
             </div>
 
             <div>

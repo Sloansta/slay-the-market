@@ -23,4 +23,8 @@ const useGameContext = () => {
     return useContext(GameContext);
 };
 
+const playerContext = createContext();
+
+const { playerInfo } = playerContext
+
 export { GameProvider, useGameContext };

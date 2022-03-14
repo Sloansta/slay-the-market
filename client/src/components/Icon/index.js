@@ -1,7 +1,9 @@
 import React from 'react';
+import { playerContext } from '../../utils/GlobalState';
 
-function Icon ({username, health}) {
-    
+function Icon () {
+    const {playerStats, setPlayerStats} = useContext(playerContext);
+
     return (
         <section>
             <h3>Player Name: {username}</h3>
