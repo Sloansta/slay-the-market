@@ -7,16 +7,16 @@ const finnhubClient = new finnhub.DefaultApi();
 
 function updateStocks(symbol, cb) {
     finnhubClient.quote(symbol, (error, data, res) => {
-        //console.log(data.dp);
+        console.log(data.dp);
         //return data.dp
         cb(data.c, data.dp);
     });
 }
 
 // test to check if the data is getting pulled
-/*updateStocks('AAPL', (current, change) => {
+updateStocks('AAPL', (current, change) => {
     console.log(current, change);
-});*/ 
+});
 
 
 module.exports = updateStocks;
