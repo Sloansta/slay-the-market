@@ -12,13 +12,16 @@ import { QUERY_PLAYER, QUERY_ALL_CARDS } from "../utils/queries";
 function Player() {
   const { data } = useQuery(QUERY_PLAYER);
   let player;
+  //debugger;
   if (data) {
+    console.log("data : ");
+    console.log(data);
     player = data.player;
     console.log("Player: ", player);
   }
   const loggedIn = Auth.loggedIn();
 
- // console.log(data);
+  // console.log(data);
   return (
     <section>
       <footer>
@@ -34,6 +37,7 @@ function Player() {
 
             <div>
               <Card />
+              {data ? `${data.player.cards[0]._id}` : null}
             </div>
           </div>
         )}
