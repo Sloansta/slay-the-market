@@ -11,10 +11,8 @@ import { QUERY_PLAYER, QUERY_ALL_CARDS } from "../utils/queries";
 
 function Player() {
   const { data } = useQuery(QUERY_PLAYER);
-  let player;
-  if (data) {
-    player = data.player;
-    console.log("Player: ", player);
+  if(data) {
+    console.log(data.player);
   }
   const loggedIn = Auth.loggedIn();
 
