@@ -15,14 +15,16 @@ function Player() {
   if (data) {
     player = data.player;
     console.log("Player: ", player);
-  }
-  const loggedIn = Auth.loggedIn();
+  } 
 
+  // const { cards, maxHealth, currentHealth } = player;
+  
+  const loggedIn = Auth.loggedIn();
  // console.log(data);
   return (
     <section>
       <footer>
-        {loggedIn && (
+        {/* {loggedIn && ( */}
           <div>
             <div>
               <Nav />
@@ -31,12 +33,15 @@ function Player() {
             <div>
               <Icon />
             </div>
-
-            <div>
-              <Card />
-            </div>
+            {data ? (
+              <div>
+              {data.player.cards.forEach((card) => (
+                <h1>{card.name}</h1>
+              ))}
+              </div>
+            ) : null}
           </div>
-        )}
+        {/* // )} */}
       </footer>
     </section>
   );
