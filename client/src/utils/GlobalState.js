@@ -7,7 +7,7 @@ const { Provider } = GameContext;
 const GameProvider = ({ value = [], ...props}) => {
     const [state, dispatch] = useGameReducer({
         currentHealth: 100,
-        deck: [],
+        maxHealth: 100,
         cards: [],
         rooms: [],
         currentRoom: '',

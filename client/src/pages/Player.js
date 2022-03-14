@@ -31,6 +31,7 @@ function Player() {
 
             <div>
               <Card />
+              {data ? `${data.player.cards[0]._id}` : null}
             </div>
           </div>
       </footer>
