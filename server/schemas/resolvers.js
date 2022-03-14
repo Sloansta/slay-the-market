@@ -1,139 +1,146 @@
-const { AuthenticationError, ReplaceFieldWithFragment, UserInputError } = require('apollo-server-express');
-const { Card, Enemy, Player, Room, Stock } = require('../models');
-const { signToken } = require('../utils/auth');
-const updateStocks = require('../utils/stockUpdate');
-const upgradeStock = require('../utils/stockUpdate');
+const {
+  AuthenticationError,
+  ReplaceFieldWithFragment,
+  UserInputError,
+} = require("apollo-server-express");
+const { Card, Enemy, Player, Room, Stock } = require("../models");
+const { signToken } = require("../utils/auth");
+const updateStocks = require("../utils/stockUpdate");
+const upgradeStock = require("../utils/stockUpdate");
 // const stripe = require('stripe');
 
 const resolvers = {
-    Query: {
-
-        // grabs all the cards. 
-        // we will want to use this query to find out what cards 
-        // the player currently has possesion of later
-        cards: async () => {
-            return await Card.find();
-        },
-
-
-        // grabs specific card based on id and name
-        card: async ({ _id, cardName }) => {
-            const newCard = Card.findOne({ _id: _id, name: cardName });
-            if(newCard) 
-                return await newCard;
-
-            throw new AuthenticationError('Card with that name not found');
-        },
-
-        // returns all of the enemies
-        // do we want a query to get the room enemies as well? 
-        enemies: async () => {
-            return await Enemy.find();
-        },
-
-        // TODO: as of now, we require the id and the name when getting a single enemy
-        // is this all we will need in the future? 
-        enemy: async ({ _id, enemyName }) => {
-            const newEnemy = Enemy.findOne({ _id: _id, name: enemyName });
-
-            if(newEnemy)
-                return await newEnemy;
-            
-            throw new AuthenticationError('Enemy with that _id/name not found');
-        },
-
-        // giving the player these values until further information is given
-        player: async (parent, args, context) => {
-            if(context.player) {
-                const player = await Player.findById(context.player._id)
-                    .populate({
-                        path: 'player.deck',
-                        populate: 'cards'
-                    });
-                
-                return player;
-            }
-
-            throw new AuthenticationError('Player not found (not logged in)');
-        },
-
-        // room takes in id as of now.
-        room: async ({ _id }) => {
-            const newRoom = Room.findById({ _id: _id });
-            if(newRoom)
-                return newRoom;
-            
-            throw new AuthenticationError('Room with that id not found');
-        },
-
-        getEnemiesInRoom: async ({ _id }) => {
-            const newRoom = Room.findById({ _id: id });
-            if(newRoom)
-                return await newRoom.enemies;
-            
-            throw new AuthenticationError('Room with that ID not found');
-        }
+  Query: {
+    // grabs all the cards.
+    // we will want to use this query to find out what cards
+    // the player currently has possesion of later
+    cards: async () => {
+      return await Card.find();
     },
 
-    Mutation: {
+    // grabs specific card based on id and name
+    card: async ({ _id, cardName }) => {
+      const newCard = Card.findOne({ _id: _id, name: cardName });
+      if (newCard) return await newCard;
 
-        // TODO: All mutations currenty have boiler plate arguments, they will likely break
-        // will fix according to the needs of the frontend
+      throw new AuthenticationError("Card with that name not found");
+    },
 
-        // creates a new player, with validation
-        addPlayer: async (parent, args) => {
-            console.log("console log inside addPlayer");
-            const player = await Player.create(args);
-            // if(!player)
-            //     throw new AuthenticationError('Something went wrong when attempting to create account');
+    // returns all of the enemies
+    // do we want a query to get the room enemies as well?
+    enemies: async () => {
+      return await Enemy.find();
+    },
 
-            console.log(player);
+    // TODO: as of now, we require the id and the name when getting a single enemy
+    // is this all we will need in the future?
+    enemy: async ({ _id, enemyName }) => {
+      const newEnemy = Enemy.findOne({ _id: _id, name: enemyName });
 
-            const token = signToken(player);
+      if (newEnemy) return await newEnemy;
 
-            return { token, player };
-        },
+      throw new AuthenticationError("Enemy with that _id/name not found");
+    },
 
-        // adds enemy with the properties of args
-        addEnemy: async (parent, args) => {
-            const enemy = await Enemy.create(args);
+    // giving the player these values until further information is given
+    player: async (parent, args, context) => {
+      if (context.player) {
+        const player = await Player.findById(context.player._id).populate({
+          path: "player.cards",
+          populate: "cards",
+        });
+        console.log("Player: ", player);
 
-            if(enemy)
-                return enemy;
-            
-            throw new AuthenticationError('Something went wrong when trying to create enemy');
+        return player;
+      }
 
-        },
+      throw new AuthenticationError("Player not found (not logged in)");
+    },
 
-        // upgrades specific card that matches _id
-        upgradeCard: async (parent, { _id }, args) => {
-             const upgradedCard = await Card.findByIdAndUpdate(_id, args, { new: true });
+    // room takes in id as of now.
+    room: async ({ _id }) => {
+      const newRoom = Room.findById({ _id: _id });
+      if (newRoom) return newRoom;
 
-             if(upgradedCard)
-                return upgradedCard;
-            
-            throw new AuthenticationError('Something went wrong when updating the card');
-        },
+      throw new AuthenticationError("Room with that id not found");
+    },
 
-        // adding stock, this will add data based on what
-        addStock: async (data) => {
-            const newStock = await Stock.create({
-                id: data._id,
-                name: data.name,
-                symbol: data.symbol,
-                quote: data.quote,
-                percentChange: data.percentChange
-            });
+    getEnemiesInRoom: async ({ _id }) => {
+      const newRoom = Room.findById({ _id: id });
+      if (newRoom) return await newRoom.enemies;
 
-            if(newStock)
-                return newStock;
-            
-            throw new AuthenticationError('Stock could not be added');
-        },
+      throw new AuthenticationError("Room with that ID not found");
+    },
+  },
 
-        //TODO: Because we are changing values within the callback function, it is likely that this will return undefined
-        // need to find a way to fix this if this is the case 
-       /*  upgradeStock: async (data) => {
+  Mutation: {
+    // TODO: All mutations currenty have boiler plate arguments, they will likely break
+    // will fix according to the needs of the frontend
+
+    // creates a new player, with validation
+    addPlayer: async (parent, { userName, email, password }) => {
+      // console.log("Args from addPlayer", args);
+      // console.log("console log inside addPlayer");
+      const player = await Player.create({
+        userName: userName,
+        email: email,
+        password: password,
+        maxHealth: 100,
+        currentHealth: 90,
+        deck: [],
+      });
+      // if(!player)
+      //     throw new AuthenticationError('Something went wrong when attempting to create account');
+
+      // console.log(player);
+
+      const token = signToken(player);
+
+      return { token, player };
+    },
+
+    // adds enemy with the properties of args
+    addEnemy: async (parent, args) => {
+      const enemy = await Enemy.create(args);
+
+      if (enemy) return enemy;
+
+      throw new AuthenticationError(
+        "Something went wrong when trying to create enemy"
+      );
+    },
+
+    // upgrades specific card that matches _id
+    upgradeCard: async (parent, { _id }, args) => {
+      const upgradedCard = await Card.findByIdAndUpdate(_id, args, {
+        new: true,
+      });
+
+      if (upgradedCard) return upgradedCard;
+
+      throw new AuthenticationError(
+        "Something went wrong when updating the card"
+      );
+    },
+
+    // adding stock, this will add data based on what
+    addStock: async (data) => {
+      const newStock = await Stock.create({
+        id: data._id,
+        name: data.name,
+        symbol: data.symbol,
+        quote: data.quote,
+        percentChange: data.percentChange,
+      });
+
+      if (newStock) return newStock;
+
+      throw new AuthenticationError("Stock could not be added");
+    },
+
+    //TODO: Because we are changing values within the callback function, it is likely that this will return undefined
+    // need to find a way to fix this if this is the case
+    /*  upgradeStock: async (data) => {
             let upgradedStock;
 
             updateStocks(data.symbol, (current, change) => {
@@ -153,23 +160,25 @@ const resolvers = {
 
         },*/
 
-        // validates user and logs them in
-        login: async ({ email, password }) => {
-            const player = await Player.findOne({ email });
+    // validates user and logs them in
+    login: async (parent, { email, password }) => {
+      const player = await Player.findOne({ email });
 
-            if(!player)
-                throw new AuthenticationError('Incorrect credentials');
-            
-            const playerPw = await player.isCorrectPassword(password);
+      if (!player) throw new AuthenticationError("Incorrect credentials");
 
-            if(!playerPw)
-                throw new AuthenticationError('Incorrect password');
-            
-            const token = signToken(player);
+      const playerPw = await player.isCorrectPassword(password);
 
-            return { token, player };
-        }
-    }
+      if (!playerPw) throw new AuthenticationError("Incorrect password");
+
+      const token = signToken(player);
+
+      return { token, player };
+    },
+  },
 };
+
+function randomVal(min, max) {
+  return Math.floor(Math.random() * (min - max)) + min;
+}
 
 module.exports = resolvers;

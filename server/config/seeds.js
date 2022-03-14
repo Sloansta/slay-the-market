@@ -15,7 +15,7 @@ db.once("open", async () => {
       upgrade: 1,
     },
     {
-      name: "Apple APPL",
+      name: "Apple AAPL",
       description: "Apple Corporation",
       id: 1,
       class: "Attack",
@@ -112,7 +112,7 @@ db.once("open", async () => {
     },
     {
       name: "Northrop Grumman NOC",
-      description: "Northro Grumman Corporation",
+      description: "Northrop Grumman Corporation",
       id: 13,
       class: "Attack",
       value: 9,
@@ -135,7 +135,7 @@ db.once("open", async () => {
       upgrade: 1,
     },
     {
-      name: "Pfizer Inc.",
+      name: "Pfizer Inc. PFE",
       description: "Pfizer Inc.",
       id: 42,
       class: "Block",
@@ -215,7 +215,7 @@ db.once("open", async () => {
       upgrade: 1,
     },
     {
-      name: "Upgraded Apple APPL",
+      name: "Upgraded Apple AAPL",
       description: "Apple Corporation",
       id: 101,
       class: "Attack",
@@ -424,160 +424,143 @@ db.once("open", async () => {
       currentHealth: 10,
       maxHealth: 20,
       isBoss: false,
-      intents: {
-        attack: randomVal(3, 5),
-        block: randomVal(2, 4),
-      },
+
+      attack: randomVal(3, 5),
+      block: randomVal(2, 4),
     },
     {
       name: "Strange Looking Ape PNG",
       currentHealth: 30,
       maxHealth: 60,
       isBoss: false,
-      intents: {
-        attack: randomVal(4, 6),
-        block: randomVal(3, 6),
-      },
+      attack: randomVal(4, 6),
+      block: randomVal(3, 6),
     },
     {
       name: "Generic Shiba Inu",
       currentHealth: 15,
       maxHealth: 20,
       isBoss: false,
-      intents: {
-        attack: randomVal(2, 4),
-        block: randomVal(2, 6),
-      },
+
+      attack: randomVal(2, 4),
+      block: randomVal(2, 6),
     },
     {
       name: "Crypto Punk",
       currentHealth: randomVal(5, 20),
       maxHealth: 20,
       isBoss: false,
-      intents: {
-        attack: randomVal(2, 4),
-        block: randomVal(2, 6),
-      },
+
+      attack: randomVal(2, 4),
+      block: randomVal(2, 6),
     },
     {
       name: "Over Priced Cat PNG",
       currentHealth: randomVal(15, 20),
       maxHealth: 34,
       isBoss: false,
-      intents: {
-        attack: randomVal(2, 6),
-        block: randomVal(2, 6),
-      },
+
+      attack: randomVal(2, 6),
+      block: randomVal(2, 6),
     },
     {
       name: "An Egg????",
       currentHealth: randomVal(5, 15),
       maxHealth: 13,
       isBoss: false,
-      intents: {
-        attack: randomVal(1, 4),
-        block: randomVal(2, 4),
-      },
+
+      attack: randomVal(1, 4),
+      block: randomVal(2, 4),
     },
     {
       name: "Totally Unique JPEG",
       currentHealth: randomVal(5, 10),
       maxHealth: 10,
       isBoss: false,
-      intents: {
-        attack: randomVal(1, 3),
-        block: randomVal(2, 7),
-      },
+
+      attack: randomVal(1, 3),
+      block: randomVal(2, 7),
     },
     {
       name: "Crypto Blob",
       currentHealth: randomVal(6, 10),
       maxHealth: 10,
       isBoss: false,
-      intents: {
-        attack: randomVal(1, 6),
-        block: randomVal(2, 7)
-      },
+
+      attack: randomVal(1, 6),
+      block: randomVal(2, 7),
     },
     {
       name: "Generic Crypto Coin",
       currentHealth: randomVal(3, 15),
       maxHealth: 15,
       isBoss: false,
-      intents: {
-        attack: randomVal(1, 7),
-        block: randomVal(2, 7)
-      },
+
+      attack: randomVal(1, 7),
+      block: randomVal(2, 7),
     },
     {
       name: "Crypto Enemy 153",
       currentHealth: randomVal(3, 15),
       maxHealth: 20,
       isBoss: false,
-      intents: {
-        attack: randomVal(1, 3),
-        block: randomVal(2, 7)
-      },
+
+      attack: randomVal(1, 3),
+      block: randomVal(2, 7),
     },
     {
       name: "Unknown Twitter NFT Bro",
       currentHealth: randomVal(5, 15),
       maxHealth: 7,
       isBoss: false,
-      intents: {
-        attack: randomVal(1, 6),
-        block: randomVal(3, 8)
-      },
+
+      attack: randomVal(1, 6),
+      block: randomVal(3, 8),
     },
     {
       name: "Mysterious NFT Image",
       currentHealth: randomVal(2, 8),
       maxHealth: 14,
       isBoss: false,
-      intents: {
-        attack: randomVal(1, 3),
-        block: randomVal(2, 7)
-      },
+
+      attack: randomVal(1, 3),
+      block: randomVal(2, 7),
     },
     {
       name: "NFT Mega Collector",
       currentHealth: randomVal(7, 17),
       maxHealth: 20,
       isBoss: false,
-      intents: {
-        attack: randomVal(3, 8),
-        block: randomVal(1, 3)
-      },
+
+      attack: randomVal(3, 8),
+      block: randomVal(1, 3),
     },
     {
       name: "The Bored Ape",
       currentHealth: randomVal(20, 56),
       isBoss: true,
       maxHealth: 50,
-      intents: {
-        attack: randomVal(1, 7),
-        block: randomVal(2, 10)
-      },
+
+      attack: randomVal(1, 7),
+      block: randomVal(2, 10),
     },
     {
       name: "The Zucc",
       currentHealth: randomVal(20, 60),
       isBoss: true,
       maxHealth: 60,
-      intents: {
-        attack: randomVal(5, 20),
-        block: randomVal(5, 25)
-      },
+
+      attack: randomVal(5, 20),
+      block: randomVal(5, 25),
     },
     {
       name: "Elon Musk's Crypto Wallet",
       currentHealth: randomVal(28, 40),
       isBoss: true,
       maxHealth: 25,
-      intents: {
-        attack: randomVal(5, 25),
-        block: randomVal(1, 30)
-      },
+
+      attack: randomVal(5, 25),
+      block: randomVal(1, 30),
     },
   ]);
 
@@ -591,7 +574,7 @@ db.once("open", async () => {
     password: "password12345",
     maxHealth: 100,
     currentHealth: 90,
-    deck: [
+    cards: [
       cards[5]._id,
       cards[6]._id,
       cards[7]._id,
@@ -611,7 +594,7 @@ db.once("open", async () => {
     password: "password12345",
     maxHealth: 100,
     currentHealth: 90,
-    deck: [
+    cards: [
       cards[0]._id,
       cards[1]._id,
       cards[2]._id,
@@ -633,27 +616,27 @@ db.once("open", async () => {
       id: 0,
       bgImage: "./assets/bgImage1",
       enemies: [
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
       ],
     },
     {
       id: 1,
       bgImage: "./assets/bgImage2",
       enemies: [
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
       ],
     },
     {
       id: 2,
       bgImage: "./assets/bgImage2",
       enemies: [
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
-        enemies[randomVal(0, 7)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
+        enemies[randomVal(0, 12)]._id,
       ],
     },
   ]);
@@ -682,7 +665,7 @@ db.once("open", async () => {
   const numDungeons = 10;
   for (let i = 0; i < numDungeons; i++) {
     //const element = array[i];
-    console.log("Index: ", i);
+    // console.log("Index: ", i);
 
     const dungeons = await Dungeon.create([
       {
@@ -706,11 +689,11 @@ db.once("open", async () => {
           cards[randomVal(0, 24)]._id,
           cards[randomVal(0, 24)]._id,
         ],
-        finalBoss: [enemies[randomVal(0, 2)]._id],
+        finalBoss: [enemies[randomVal(13, 15)]._id],
       },
     ]);
     //console.log(cards[i].id);
-    console.log(dungeons);
+    //console.log(dungeons);
   }
 
   process.exit();
