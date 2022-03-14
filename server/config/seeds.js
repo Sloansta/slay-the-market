@@ -15,7 +15,7 @@ db.once("open", async () => {
       upgrade: 1,
     },
     {
-      name: "Apple APPL",
+      name: "Apple AAPL",
       description: "Apple Corporation",
       id: 1,
       class: "Attack",
@@ -112,7 +112,7 @@ db.once("open", async () => {
     },
     {
       name: "Northrop Grumman NOC",
-      description: "Northro Grumman Corporation",
+      description: "Northrop Grumman Corporation",
       id: 13,
       class: "Attack",
       value: 9,
@@ -135,7 +135,7 @@ db.once("open", async () => {
       upgrade: 1,
     },
     {
-      name: "Pfizer Inc.",
+      name: "Pfizer Inc. PFE",
       description: "Pfizer Inc.",
       id: 42,
       class: "Block",
@@ -215,7 +215,7 @@ db.once("open", async () => {
       upgrade: 1,
     },
     {
-      name: "Upgraded Apple APPL",
+      name: "Upgraded Apple AAPL",
       description: "Apple Corporation",
       id: 101,
       class: "Attack",
