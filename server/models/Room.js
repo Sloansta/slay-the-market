@@ -1,4 +1,4 @@
-// id background image enemies
+// Room Model
 const mongoose = require('mongoose');
 const { Schema }   = mongoose;
 
@@ -7,12 +7,12 @@ const roomSchema = new Schema({
         type: Number,
         required: true
     },
-    // Background image
+   
     bgImage: {
         type: String,
         required: true
     },
-    // TODO: We may need to change this
+   
     enemies: {
         type: Array,
         required: true

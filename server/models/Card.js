@@ -1,4 +1,4 @@
-// id class value(modifier) upgrade(modifier)
+// Card Model
 const mongoose = require('mongoose');
 const { Schema }   = mongoose;
 
