@@ -16,7 +16,7 @@ const dungeonSchema = new Schema({
       ref: "Room",
     }, 
   ],
-  cards: [
+  rewards: [
     {
       type: Schema.Types.ObjectId,
       ref: "Card",

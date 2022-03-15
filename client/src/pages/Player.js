@@ -65,6 +65,9 @@ function Player() {
               <Nav />
             </div>
 
+            <div>
+              <Icon />
+            </div>
 
         <div className="player-info">
           <div>
