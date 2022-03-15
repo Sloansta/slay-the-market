@@ -9,3 +9,4 @@ export const DISCARD = 'DISCARD';
 export const ADD_TO_DECK = 'ADD_TO_DECK';
 export const REMOVE_FROM_DECK = 'REMOVE_FROM_DECK';
 export const POPULATE_CARDS = 'POPULATE_CARDS';
+export const NEW_HAND = 'NEW_HAND';

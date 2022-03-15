@@ -8,12 +8,36 @@
   --red: #FF827A;
 }
 
-.player-info {
-  width: 100%;
+main input {
+  background-color: var(--gray);
+  color: var(--white);
+}
+
+.player-info .card {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: center;
+  background-color: var(--yellow);
+}
+
+.player-info button {
+  color: var(--white);
+  background-color: var(--red);
+  width: 25%;
+  padding: 15px;
+}
+
+.list-group-item {
+  background-color: var(--tan);
+}
+
+.enemies {
+  display: flex;
+  justify-content: space-between;
+}
+
+.enemies h2 {
+  color: var(--gray);
 }
 
 @media only screen and (orientation:portrait) {

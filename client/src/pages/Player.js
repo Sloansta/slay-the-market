@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import Nav from "../components/Nav";
 import Icon from "../components/Icon";
 import Card from "../components/Card";
+import Enemy from '../components/Enemy';
+import Cave from '../components/Cave';
 import { useGameContext } from '../utils/GlobalState';
 import { UPDATE_DECK, LOSE_HEALTH, IS_ALIVE, POPULATE_CARDS } from '../utils/actions';
 import Auth from "../utils/auth";
@@ -59,15 +61,11 @@ function Player() {
   // const loggedIn = Auth.loggedIn();
   return (
     <section>
-      <footer>
-          <div>
-            <div>
-              <Nav />
-            </div>
-
-            <div>
-              <Icon />
-            </div>
+      <div>
+        <div>
+          <Nav />
+          <Enemy />
+        </div>
 
         <div className="player-info">
           <div>
@@ -79,12 +77,10 @@ function Player() {
           </div>
 
           <button type="submit">
-              End Turn
+            End Turn
           </button>
         </div>
-
-          </div>
-      </footer>
+      </div>
     </section>
   );
 }
