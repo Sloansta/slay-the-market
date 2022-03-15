@@ -9,7 +9,8 @@ import {
     SHUFFLE_DECK,
     IS_ALIVE,
     POPULATE_CARDS,
-    REMOVE_FROM_DECK
+    REMOVE_FROM_DECK,
+    NEW_HAND
 } from './actions';
 
 import { isAlive, reduceHealth, gainHealth } from './helpers';
@@ -71,6 +72,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 cards: [...action.cards]
+            };
+        case NEW_HAND:
+            return {
+                ...state,
+                hand: [...action.hand]
             }
         default:
             return state

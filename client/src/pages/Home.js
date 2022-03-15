@@ -5,7 +5,6 @@ import '../App.css';
 import '../assets/page-css/home.css';
 
 import Auth from '../utils/auth';
-import { useGameContext } from '../utils/GlobalState';
 
 import Login from './Login';
 import Signup from './Signup';
@@ -28,15 +27,15 @@ function Home () {
         if(data) {
             let newCards = [
               data.cards[5],
+              data.cards[22],
               data.cards[6],
               data.cards[7],
-              data.cards[8],
-              data.cards[9],
               data.cards[18],
               data.cards[19],
+              data.cards[8],
+              data.cards[9],
               data.cards[20],
               data.cards[17],
-              data.cards[22],
             ];
             dispatch({
                 type: POPULATE_CARDS,
