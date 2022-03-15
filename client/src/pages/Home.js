@@ -30,21 +30,29 @@ function Home() {
 
   useEffect(() => {
     if (data) {
-      let newCards = [
-        data.cards[5],
-        data.cards[6],
-        data.cards[7],
-        data.cards[8],
-        data.cards[9],
-        data.cards[18],
-        data.cards[19],
-        data.cards[20],
-        data.cards[17],
-        data.cards[22],
-      ];
+      let newCards = data.cards;
+
+      const attackStuff = data.cards[Math.random() * 10];
+      console.log("Attack stuff", attackStuff);
+
+      const attackCards = newCards.slice(0, 13);
+      const blockCards = newCards.slice(14, 20);
+      const healCards = newCards.slice(21, 25);
+      const attackShuffled = attackCards.sort(() => 0.5 - Math.random());
+      const blockShuffled = blockCards.sort(() => 0.5 - Math.random());
+      const healShuffled = healCards.sort(() => 0.5 - Math.random());
+      let attackSelected = attackShuffled.slice(0, 5);
+      let blockSelected = blockShuffled.slice(0, 4);
+      let healSelected = healShuffled.slice(0, 1);
+      let selectedCards = [];
+      selectedCards = attackSelected.concat(blockSelected, healSelected);
+      selectedCards = selectedCards.sort(() => 0.5 - Math.random());
+
+      console.log("SELECTED ARDS", selectedCards);
+
       dispatch({
         type: POPULATE_CARDS,
-        cards: newCards,
+        cards: selectedCards,
       });
 
       console.log(state.cards);
@@ -60,9 +68,9 @@ function Home() {
 
       let rooms = [];
       let generateEnemies = [
-        [enemyData.enemies[5], enemyData.enemies[3], enemyData.enemies[10]],
-        [enemyData.enemies[10], enemyData.enemies[11], enemyData.enemies[0]],
-        [enemyData.enemies[12], enemyData.enemies[2], enemyData.enemies[7]],
+        [enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)]],
+        [enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)]],
+        [enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)]],
       ];
 
       rooms.push(generateEnemies);
@@ -109,7 +117,7 @@ function Home() {
 }
 
 function randomVal(min, max) {
-  return Math.floor(Math.random() * (min - max)) + min;
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 export default Home;

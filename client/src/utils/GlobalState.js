@@ -16,6 +16,7 @@ const GameProvider = ({ value = [], ...props}) => {
         enemies: [],
         finalBoss: [],
         currentRoom: '',
+        playerTurn: true,
         inCombat: false,
         isAlive: true,
         discardPile: [],

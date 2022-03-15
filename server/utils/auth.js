@@ -1,8 +1,13 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 //TODO: We will want to hide this with dotenv I am pretty sure
 
-const secret = "mysecretsshhhhh";
+// PUT  JWT_PW="mysecretsshhhhh"    In .env file
+
+
+const secret = process.env.JWT_PW;
+
 const expiration = "2h";
 
 module.exports = {
