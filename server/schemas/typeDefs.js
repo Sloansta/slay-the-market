@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 // making Enemy intents array a string since I am not sure what the array consists of
 
-// making Player deck an array of Cards
+// making Player cards an array of Card
 
 const typeDefs = gql`
   type Card {
