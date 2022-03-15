@@ -675,7 +675,7 @@ db.once("open", async () => {
           rooms[randomVal(0, 2)]._id,
           rooms[randomVal(0, 2)]._id,
         ],
-        cards: [
+        rewards: [
           cards[randomVal(0, 24)]._id,
           cards[randomVal(0, 24)]._id,
           cards[randomVal(0, 24)]._id,
@@ -693,7 +693,7 @@ db.once("open", async () => {
       },
     ]);
     //console.log(cards[i].id);
-    //console.log(dungeons);
+    console.log(dungeons);
   }
 
   process.exit();
