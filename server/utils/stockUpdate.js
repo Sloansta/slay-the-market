@@ -198,7 +198,7 @@ function updateStocks() {
       tmpStock.percentChange = data.dp;
 
       updatedStocks.push(tmpStock);
-      console.log(updatedStocks);
+      // console.log(updatedStocks);
       //   Stock.create([
       //     {
       //       id: element.id,

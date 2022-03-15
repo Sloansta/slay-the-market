@@ -1,3 +1,5 @@
+// Stock Model
+// Keeps will be updated with stockUpdate function
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
