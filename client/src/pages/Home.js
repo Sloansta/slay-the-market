@@ -46,6 +46,7 @@ function Home() {
       let healSelected = healShuffled.slice(0, 1);
       let selectedCards = [];
       selectedCards = attackSelected.concat(blockSelected, healSelected);
+      selectedCards = selectedCards.sort(() => 0.5 - Math.random());
 
       console.log("SELECTED ARDS", selectedCards);
 
