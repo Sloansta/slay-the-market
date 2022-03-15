@@ -1,10 +1,13 @@
+// Load required files/functions
 const db = require("./connection");
 const { Card, Enemy, Player, Room, Stock } = require("../models");
 const Dungeon = require("../models/Dungeon");
 
+// open the database
 db.once("open", async () => {
+  // Delete all current cards in db
   await Card.deleteMany();
-
+  // Add all the following cards to the db
   const cards = await Card.insertMany([
     {
       name: "Paypal PYPL",
@@ -412,11 +415,10 @@ db.once("open", async () => {
     },
     // Upgraded UTIL Cards181-200
   ]);
-
   console.log("Cards seeded");
-
+  // delete all enemiies
   await Enemy.deleteMany();
-
+  // Add all the new enemies
   const enemies = await Enemy.insertMany([
     {
       name: "Sweaty Crypto Bro",
@@ -563,11 +565,10 @@ db.once("open", async () => {
       block: randomVal(1, 30),
     },
   ]);
-
   console.log("enemies seeded");
-
+  // delete players
   await Player.deleteMany();
-
+  // create dummy accounts with starter deck
   await Player.create({
     userName: "PlayerName1",
     email: "player1@test.com",
@@ -607,10 +608,10 @@ db.once("open", async () => {
       cards[21]._id,
     ],
   });
-
   console.log("Players seeded");
+  // delete old rooms
   await Room.deleteMany();
-
+  // create new rooms
   const rooms = await Room.insertMany([
     {
       id: 0,
@@ -641,7 +642,10 @@ db.once("open", async () => {
     },
   ]);
   console.log("Rooms seeded");
+  // delete Stocks
   await Stock.deleteMany();
+  // Add dummy stocks
+  // TODO: Might seed the whole thing with stocks
   const stocks = await Stock.insertMany([
     {
       id: 1,
@@ -661,6 +665,7 @@ db.once("open", async () => {
   console.log("Stocks seeded");
 
   // Crazy dungeon seeding stuff
+  // delete old dungeon
   await Dungeon.deleteMany();
   const numDungeons = 10;
   for (let i = 0; i < numDungeons; i++) {
@@ -675,7 +680,7 @@ db.once("open", async () => {
           rooms[randomVal(0, 2)]._id,
           rooms[randomVal(0, 2)]._id,
         ],
-        cards: [
+        rewards: [
           cards[randomVal(0, 24)]._id,
           cards[randomVal(0, 24)]._id,
           cards[randomVal(0, 24)]._id,

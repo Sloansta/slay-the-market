@@ -1,4 +1,5 @@
-
+// Dungeon Model, so we can send everything to the player
+// when they login, so they can play offline after
 const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
@@ -16,7 +17,7 @@ const dungeonSchema = new Schema({
       ref: "Room",
     }, 
   ],
-  cards: [
+  rewards: [
     {
       type: Schema.Types.ObjectId,
       ref: "Card",
