@@ -67,9 +67,9 @@ function Home() {
 
       let rooms = [];
       let generateEnemies = [
-        [enemyData.enemies[5], enemyData.enemies[3], enemyData.enemies[10]],
-        [enemyData.enemies[10], enemyData.enemies[11], enemyData.enemies[0]],
-        [enemyData.enemies[12], enemyData.enemies[2], enemyData.enemies[7]],
+        [enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)]],
+        [enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)]],
+        [enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)]],
       ];
 
       rooms.push(generateEnemies);
@@ -116,7 +116,7 @@ function Home() {
 }
 
 function randomVal(min, max) {
-  return Math.floor(Math.random() * (min - max)) + min;
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 export default Home;
