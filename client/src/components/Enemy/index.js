@@ -5,16 +5,12 @@ function Enemy () {
   const [state, dispatch] = useGameContext();
   
   const renderEnemies = state.rooms[0][0].map((enemy, index) =>
-    <div key={index} className="enemy card" style={{"width": "25rem", "height": "10rem"}}>
+    <div className="enemy card" style={{"width": "25rem", "height": "10rem"}}>
             <div className="card-body">
                 <h5>Name: {enemy.name}</h5>
                 <h5>Health: {enemy.currentHealth}</h5>
             </div>
     </div>
-    // <div className="enemies">
-    //     <h2 key={index}>{enemy.name}</h2>
-    //     <h2>Health: {enemy.currentHealth}</h2>
-    // </div>
   );
 
   return (
