@@ -10,20 +10,19 @@ import Login from './Login';
 import Signup from './Signup';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_PLAYER, QUERY_ALL_CARDS, QUERY_ROOMS } from '../utils/queries';
+import { QUERY_PLAYER, QUERY_ALL_CARDS, QUERY_ROOMS, QUERY_ALL_ENEMIES } from '../utils/queries';
 
 import { generateRoundData } from '../utils/helpers';
 
 import { useGameContext } from '../utils/GlobalState';
-import { POPULATE_CARDS } from '../utils/actions';
+import { POPULATE_CARDS, CREATE_ROOM } from '../utils/actions';
 
 function Home () {
 
     const [state, dispatch] = useGameContext();
 
-    const player = useQuery(QUERY_PLAYER);
     const { loading, data } = useQuery(QUERY_ALL_CARDS);
-    //const// room = useQuery(QUERY_ROOMS);
+    const { loading: enemyLoad, data: enemyData} = useQuery(QUERY_ALL_ENEMIES);
 
     useEffect(() => {
         if(data) {
@@ -47,10 +46,52 @@ function Home () {
             console.log(state.cards);
         }
     }, [loading]);
+
+    useEffect(() => {
+        if(enemyData) {
+
+            // I have tried multiple forloops; doesn't work
+            // I have tried to make the enemy values random; doesn't work
+            // I do not know why, it has to be a timing issue with how useEffect works.
+            // My goal is to get enemy data truly random to avoid this hard coded stuff
+
+            let rooms = [];
+            let generateEnemies = [
+                [
+                   enemyData.enemies[5],
+                   enemyData.enemies[3],
+                   enemyData.enemies[10],
+
+                ],
+                [
+                    enemyData.enemies[10],
+                    enemyData.enemies[11],
+                    enemyData.enemies[0],
+
+                ],
+                [
+                    enemyData.enemies[12],
+                    enemyData.enemies[2],
+                    enemyData.enemies[7],
+
+                ]
+            ];
+
+            rooms.push(generateEnemies);
+
+            dispatch({
+                type: CREATE_ROOM,
+                rooms: rooms
+            });
+
+            //console.log(rooms);
+            console.log(enemyData);
+        }
+    }, [enemyLoad])
     
 
     console.log(state);
-    //console.log(card.data);
+    //console.log(enemies.data);
 
     /*try {
         if(player.data && card.data)

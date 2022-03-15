@@ -58,10 +58,7 @@ function Player() {
             </div>
 
             <div>
-              <Ico
-              
-              
-              n />
+              <Icon />
             </div>
 
             <div>

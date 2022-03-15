@@ -45,7 +45,8 @@ export const reducer = (state, action) => {
             };
         case CREATE_ROOM:
             return {
-
+                ...state,
+                rooms: [...action.rooms]
             };
         case DISCARD:
             return {
