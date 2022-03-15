@@ -45,7 +45,7 @@ function Home() {
       let blockSelected = blockShuffled.slice(0, 4);
       let healSelected = healShuffled.slice(0, 1);
       let selectedCards = [];
-      selectedCards.push(attackSelected, blockSelected, healSelected);
+      selectedCards = attackSelected.concat(blockSelected, healSelected);
 
       console.log("SELECTED ARDS", selectedCards);
 
