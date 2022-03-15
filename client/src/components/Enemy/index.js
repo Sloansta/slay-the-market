@@ -1,10 +1,11 @@
+import { stat } from 'fs';
 import React from 'react';
 import { useGameContext } from '../../utils/GlobalState';
 
 function Enemy () {
   const [state, dispatch] = useGameContext();
   
-  const renderEnemies = state.rooms[0][0].map((enemy, index) =>
+  const renderEnemies = state.rooms[0][state.currentRoom].map((enemy, index) =>
     <div key={index} className="enemy card" style={{"width": "25rem", "height": "10rem"}}>
             <div className="card-body">
                 <h5>Name: {enemy.name}</h5>
