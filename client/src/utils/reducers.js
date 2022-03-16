@@ -34,19 +34,19 @@ export const reducer = (state, action) => {
     case LOSE_HEALTH_ENEMY_1:
       return {
         ...state,
-        enemyOneHealth: action.currentHealth,
+        enemyOneHealth: action.enemyOneHealth,
       };
 
     case LOSE_HEALTH_ENEMY_2:
       return {
         ...state,
-        enemyTwoHealth: action.currentHealth,
+        enemyTwoHealth: action.enemyTwoHealth,
       };
 
     case LOSE_HEALTH_ENEMY_3:
       return {
         ...state,
-        enemyThreeHealth: action.currentHealth,
+        enemyThreeHealth: action.enemyThreeHealth,
       };
     /*case LOSE_HEALTH_ENEMY_1: 
             return {
