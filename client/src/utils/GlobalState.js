@@ -15,18 +15,21 @@ const GameProvider = ({ value = [], ...props}) => {
         rewards: [],
         enemies: [],
         enemyOne: {
+            name: 'enemy1',
             attack: randomVal(4, 10),
             block: randomVal(0, 5),
             currentHealth: 20,
             maxHealth: 30
         },
         enemyTwo: {
+            name: 'enemy2',
             attack: randomVal(4, 10),
             block: randomVal(0, 5),
             currentHealth: randomVal(10, 20),
             maxHealth: 45
         },
         enemyThree: {
+            name: 'enemy3',
             attack: randomVal(4, 10),
             block: randomVal(0, 5),
             currentHealth: randomVal(15, 25),
