@@ -67,6 +67,6 @@ export function generateRoundData(player, cards, rooms) {
 }
 
 
-function randomVal(min, max) {
+export function randomVal(min, max) {
     return Math.floor(Math.random() * (min - max)) + min;
 }

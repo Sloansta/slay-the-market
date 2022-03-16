@@ -3,6 +3,7 @@ import { useGameReducer } from './reducers';
 
 const GameContext = createContext();
 const { Provider } = GameContext;
+import { randomVal } from "./helpers";
 
 const GameProvider = ({ value = [], ...props}) => {
     const [state, dispatch] = useGameReducer({
@@ -14,6 +15,24 @@ const GameProvider = ({ value = [], ...props}) => {
         rewards: [],
         rooms: [],
         enemies: [],
+        enemyOne: {
+            attack: randomVal(4, 10),
+            block: randomVal(0, 5),
+            currentHealth: 20,
+            maxHealth: 30
+        },
+        enemyTwo: {
+            attack: randomVal(4, 10),
+            block: randomVal(0, 5),
+            currentHealth: randomVal(10, 20),
+            maxHealth: 45
+        },
+        enemyThree: {
+            attack: randomVal(4, 10),
+            block: randomVal(0, 5),
+            currentHealth: randomVal(15, 25),
+            maxHealth: 30
+        },
         finalBoss: [],
         currentRoom: 0,
         playerTurn: true,
