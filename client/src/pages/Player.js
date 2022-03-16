@@ -17,7 +17,7 @@ import { reduceHealth, isAlive, gainHealth, useBlock } from "../utils/helpers";
 function Player() {
   const [state, dispatch] = useGameContext();
   // query player object for health // starting deck
-  console.log(state);
+  // console.log(state);
   const { loading, data } = useQuery(QUERY_PLAYER);
   // update deck in local storage and global state
   useEffect(() => {
@@ -41,7 +41,7 @@ function Player() {
   // check to see if user is alive whenever user state changes
   useEffect(() => {
     isAlive(state.currentHealth);
-    console.log(isAlive());
+    // console.log(isAlive());
   }, [state.currentHealth, dispatch, loading, data]);
   // reduce player health based on global state attack value
   useEffect(() => {

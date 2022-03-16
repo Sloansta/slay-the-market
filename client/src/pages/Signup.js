@@ -42,7 +42,7 @@ function Signup() {
       Auth.login(token);
     } catch (e) {
       console.error(e);
-      console.log({ ...formState });
+      // console.log({ ...formState });
     }
   };
 
