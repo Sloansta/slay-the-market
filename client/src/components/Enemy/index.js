@@ -7,7 +7,6 @@ import { reduceHealth } from "../../utils/helpers";
 
 function Enemy() {
   const [state, dispatch] = useGameContext();
-  // const [enemyHealth, setEnemyHealth] = useState(enemyHealth);
   //debugger;
   function selectedEnemy(index) {
     let selectedEnemy = state.enemies;
@@ -29,42 +28,38 @@ function Enemy() {
       // }
       // selectedEnemy[index].currentHealth = enemyHealth
 
-      let monsterId = state.enemies[index].name
-
-      console.log('test')
-      const newArray = selectedEnemy.map( obj => {
-        if (obj.name === monsterId) {
-          return {...obj, 
-            currentHealth: enemyHealth
-          }
-        }
-      })
-      console.log(newArray);
-
-        dispatch({
-        type: CREATE_ENEMIES,
-        enemies: newArray,
+      dispatch({
+        type: LOSE_HEALTH,
+        currentHealth: enemyHealth,
       });
 
-      console.log(selectedEnemy);
+      // let monsterName = state.enemies[index].name
+
+      // const newArray = Array.from(state.enemies);
+
+      // console.log(newArray);
+      // const newerArray = newArray.map( obj => {
+      //   if (obj.name === monsterName) {
+      //     obj.currentHealth = enemyHealth
+      //   }
+      //   return {...obj}
+      // })
+
+
+      //   dispatch({
+      //   type: CREATE_ENEMIES,
+      //   enemies: newArray,
+      // });
+
+      // console.log(selectedEnemy);
 
     }
     if (state.enemies[index].currentHealth <= 0) {
       document.getElementById('target').style.opacity = "25%";
     }
 
-    console.log(state);
+    // console.log(state);
   }
-
-  // const renderEnemies = state.enemies.map((enemy, index) =>
-  //   <div className="enemy card" style={{"width": "25rem", "height": "10rem"}} onClick={() => selectedEnemy(index)}>
-  //           <div className="card-body">
-  //               <h5>Name: {enemy.name}</h5>
-  //               <h5>Health: {enemy.currentHealth}</h5>
-  //               <h5>Block: {enemy.blockVal}</h5>
-  //           </div>
-  //   </div>
-  // );
 
   return (
     <section>
@@ -84,7 +79,7 @@ function Enemy() {
         </div>
       </div>
 
-      <div className="card-deck">
+      {/* <div className="card-deck">
         <div
           className="enemy card"
           key="1"
@@ -112,7 +107,7 @@ function Enemy() {
             <h5>Block: {state.enemies[2].blockVal}</h5>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

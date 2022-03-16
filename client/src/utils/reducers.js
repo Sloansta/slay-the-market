@@ -26,7 +26,7 @@ export const reducer = (state, action) => {
         case LOSE_HEALTH:
             return {
                 ...state,
-                currentHealth: action.currentHealth
+                currentHealth: action.enemyHealth
             };
         case GAIN_HEALTH:
             return {
