@@ -21,11 +21,12 @@ import { isAlive, reduceHealth, gainHealth } from './helpers';
 import { useReducer } from 'react';
 
 export const reducer = (state, action) => {
+    
     switch (action.type) {
         case LOSE_HEALTH:
             return {
                 ...state,
-                currentHealth: state.currentHealth
+                currentHealth: action.currentHealth
             };
         case GAIN_HEALTH:
             return {

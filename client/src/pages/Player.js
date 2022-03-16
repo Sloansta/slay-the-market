@@ -17,7 +17,7 @@ import { reduceHealth, isAlive, gainHealth, useBlock } from "../utils/helpers";
 function Player() {
   const [state, dispatch] = useGameContext();
   // query player object for health // starting deck
-  // console.log(state);
+  console.log(state);
   const { loading, data } = useQuery(QUERY_PLAYER);
   // update deck in local storage and global state
   useEffect(() => {
