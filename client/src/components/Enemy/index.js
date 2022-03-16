@@ -20,12 +20,12 @@ function Enemy() {
       );
       console.log('enemy health is now ' + enemyHealth);
  
-      // if (state.selectedEnemy.length === 0) {
-      //   dispatch({
-      //   type: SELECTED_ENEMY,
-      //   selectedEnemy: state.enemies[index],
-      //   });
-      // }
+      if (state.selectedEnemy.length === 0) {
+        dispatch({
+        type: SELECTED_ENEMY,
+        selectedEnemy: state.enemies[index],
+        });
+      }
       // selectedEnemy[index].currentHealth = enemyHealth
 
       dispatch({
