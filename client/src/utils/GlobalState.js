@@ -13,7 +13,6 @@ const GameProvider = ({ value = [], ...props}) => {
         hand: [],
         cards: [],
         rewards: [],
-        rooms: [],
         enemies: [],
         enemyOne: {
             attack: randomVal(4, 10),
@@ -33,6 +32,7 @@ const GameProvider = ({ value = [], ...props}) => {
             currentHealth: randomVal(15, 25),
             maxHealth: 30
         },
+        rooms: [enemyOne, enemyTwo, enemyThree],
         finalBoss: [],
         currentRoom: 0,
         playerTurn: true,
