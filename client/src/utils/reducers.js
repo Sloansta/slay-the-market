@@ -10,7 +10,8 @@ import {
     IS_ALIVE,
     POPULATE_CARDS,
     REMOVE_FROM_DECK,
-    NEW_HAND
+    NEW_HAND,
+    NEW_ROOM
 } from './actions';
 
 import { isAlive, reduceHealth, gainHealth } from './helpers';
@@ -77,7 +78,12 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 hand: [...action.hand]
-            }
+            };
+        case NEW_ROOM: 
+            return {
+                ...state,
+                currentRoom: action.newRoom
+            };
         default:
             return state
     }
