@@ -20,7 +20,7 @@ import {
 
 import { generateRoundData } from "../utils/helpers";
 
-import { POPULATE_CARDS, CREATE_ROOM, NEW_ROOM } from "../utils/actions";
+import { POPULATE_CARDS, CREATE_ENEMIES } from "../utils/actions";
 
 function Home() {
   const [state, dispatch] = useGameContext();
@@ -64,16 +64,16 @@ function Home() {
 
       let rooms = [];
       let generateEnemies = [
-        [enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)]],
-        [enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)]],
-        [enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)], enemyData.enemies[randomVal(0, 15)]],
-      ];
+        enemyData.enemies[randomVal(0, 13)], enemyData.enemies[randomVal(0, 13)], enemyData.enemies[randomVal(0, 13)],
+        enemyData.enemies[randomVal(0, 13)], enemyData.enemies[randomVal(0, 13)], enemyData.enemies[randomVal(0, 13)],
+        enemyData.enemies[randomVal(0, 13)], enemyData.enemies[randomVal(0, 13)], enemyData.enemies[randomVal(0, 13)],
+        enemyData.enemies[randomVal(14, 16)]];
 
       rooms.push(generateEnemies);
 
       dispatch({
-        type: CREATE_ROOM,
-        rooms: rooms,
+        type: CREATE_ENEMIES,
+        enemies: generateEnemies,
       });
 
       //console.log(rooms);

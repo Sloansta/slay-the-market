@@ -20,7 +20,8 @@ const GameProvider = ({ value = [], ...props}) => {
         inCombat: false,
         isAlive: true,
         discardPile: [],
-        selectedCard: {},
+        selectedCard: [],
+        selectedEnemy: [],
         attackVal: 10,
         blockVal: 0
     });
