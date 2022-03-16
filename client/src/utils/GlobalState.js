@@ -15,12 +15,13 @@ const GameProvider = ({ value = [], ...props}) => {
         rooms: [],
         enemies: [],
         finalBoss: [],
-        currentRoom: '',
+        currentRoom: 0,
         playerTurn: true,
         inCombat: false,
         isAlive: true,
         discardPile: [],
-        selectedCard: {},
+        selectedCard: [],
+        selectedEnemy: [],
         attackVal: 10,
         blockVal: 0
     });

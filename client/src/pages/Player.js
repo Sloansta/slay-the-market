@@ -66,15 +66,11 @@ function Player() {
           <Nav />
           <Enemy />
         </div>
+        <Cave />
 
         <div className="player-info">
-          <div>
             <Icon />
-          </div>
-
-          <div>
             <Card />
-          </div>
 
           <button type="submit">
             End Turn

@@ -13,6 +13,7 @@ function Icon () {
                 <div className="card-body">
                     <h5>Name: {state.userName}</h5>
                     <h5>Health: {state.currentHealth}</h5>
+                    <h5>Block: {state.blockVal}</h5>
                 </div>
             </div>
         </section>
