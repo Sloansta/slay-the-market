@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LOSE_HEALTH, SELECTED_ENEMY } from "../../utils/actions";
+import { LOSE_HEALTH, SELECTED_ENEMY, CREATE_ENEMIES } from "../../utils/actions";
 import { stat } from "fs";
 
 import { useGameContext } from "../../utils/GlobalState";
@@ -10,20 +10,44 @@ function Enemy() {
   // const [enemyHealth, setEnemyHealth] = useState(enemyHealth);
   //debugger;
   function selectedEnemy(index) {
-    if (state.selectedEnemy && state.selectedCard.length !== 0) {
+    let selectedEnemy = state.enemies;
+
+    // console.log(selectedEnemy);
+
+    if (state.selectedCard.length !== 0) {
       let enemyHealth = reduceHealth(
         state.enemies[index].currentHealth,
         state.selectedCard.value
       );
-      console.log('enemy health is now' + enemyHealth);
-      dispatch({
-        type: SELECTED_ENEMY,
-        selectedEnemy: state.enemies[index],
+      console.log('enemy health is now ' + enemyHealth);
+ 
+      // if (state.selectedEnemy.length === 0) {
+      //   dispatch({
+      //   type: SELECTED_ENEMY,
+      //   selectedEnemy: state.enemies[index],
+      //   });
+      // }
+      // selectedEnemy[index].currentHealth = enemyHealth
+
+      let monsterId = state.enemies[index].name
+
+      console.log('test')
+      const newArray = selectedEnemy.map( obj => {
+        if (obj.name === monsterId) {
+          return {...obj, 
+            currentHealth: enemyHealth
+          }
+        }
+      })
+      console.log(newArray);
+
+        dispatch({
+        type: CREATE_ENEMIES,
+        enemies: newArray,
       });
-      dispatch({
-        type: LOSE_HEALTH,
-        currentHealth: enemyHealth,
-      });
+
+      console.log(selectedEnemy);
+
     }
     if (state.enemies[index].currentHealth <= 0) {
       document.getElementById('target').style.opacity = "25%";
