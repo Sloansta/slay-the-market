@@ -75,11 +75,13 @@ function Home() {
         enemyData.enemies[randomVal(14, 16)],
       ];
 
-      rooms.push(generateEnemies);
+      let filterEnemy = Array.from(new Set(generateEnemies));
+
+      rooms.push(filterEnemy);
 
       dispatch({
         type: CREATE_ENEMIES,
-        enemies: generateEnemies,
+        enemies: filterEnemy,
       });
 
       //console.log(rooms);
