@@ -12,7 +12,8 @@ import {
     REMOVE_FROM_DECK,
     NEW_HAND,
     SELECTED_CARD,
-    SELECTED_ENEMY
+    SELECTED_ENEMY,
+    NEW_ROOM
 } from './actions';
 
 import { isAlive, reduceHealth, gainHealth } from './helpers';
@@ -90,6 +91,11 @@ export const reducer = (state, action) => {
                 ...state,
                 selectedEnemy: action.selectedEnemy
             }
+        case NEW_ROOM: 
+            return {
+                ...state,
+                currentRoom: action.newRoom
+            };
         default:
             return state
     }

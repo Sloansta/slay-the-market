@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { LOSE_HEALTH, SELECTED_ENEMY } from '../../utils/actions';
+import { stat } from 'fs';
+import React from 'react';
 import { useGameContext } from '../../utils/GlobalState';
 import { reduceHealth } from '../../utils/helpers';
 
