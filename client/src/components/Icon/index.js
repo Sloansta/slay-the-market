@@ -5,7 +5,7 @@ import playerIcon from '../../assets/player/player-icon.png';
 function Icon () {
     const [state, dispatch] = useGameContext();
 
-    console.log(state);
+    // console.log(state);
     return (
         <section>
             <div className="card" style={{"width": "25rem", "height": "10rem"}}>
