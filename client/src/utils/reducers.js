@@ -97,6 +97,11 @@ export const reducer = (state, action) => {
                 ...state,
                 currentRoom: action.newRoom
             };
+        case CHECK_ENEMY_HEALTH:
+            return {
+                ...state,
+                rooms: action.rooms
+            }
         default:
             return state
     }

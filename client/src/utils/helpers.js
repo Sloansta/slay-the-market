@@ -13,14 +13,11 @@ export function gainHealth(health, maxHealth) {
 };
 
 export function isAlive(health) {
-    let isAlive;
     if (health <= 0) {
-        isAlive = false;
+    return false;
     }
 
-    isAlive = true;
-
-    return isAlive;
+    return true;
 };
 
 export function enemyRemains(enemies) {
@@ -69,4 +66,25 @@ export function generateRoundData(player, cards, rooms) {
 
 function randomVal(min, max) {
     return Math.floor(Math.random() * (min - max)) + min;
+};
+
+function newRoom(rooms) {
+    let roomSel;
+    if(isAlive(rooms[0])) {
+        roomSel = 1;
+    };
+
+    if (isAlive(rooms[1])) {
+        roomSel = 2
+    };
+
+    if (isAlive(rooms[2])) {
+        roomSel = 3
+    };
+
+    if (isAlive(roomsa[4])) {
+        roomSel = 4
+    };
+
+    return roomSel;
 }

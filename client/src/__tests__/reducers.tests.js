@@ -8,11 +8,13 @@ import {
     ADD_TO_DECK,
     SHUFFLE_DECK,
     IS_ALIVE,
-    REMOVE_FROM_DECK
+    REMOVE_FROM_DECK,
+    CHECK_ENEMY_HEALTH,
+    NEW_ROOM
 } from '../utils/actions';
 
-import { reducer } from '../util/reducers';
-import { reduceHealth, gainHealth, isAlive } from '../utils/helpers'
+import { reducer } from '../utils/reducers';
+import { reduceHealth, gainHealth, isAlive, newRoom } from '../utils/helpers'
 
 const initialState = {
     currentHealth: 100,
@@ -22,7 +24,13 @@ const initialState = {
     cards: [{ name: 'card4'},
     { name: 'card5' },
     { name: 'card6' }],
-    rooms: ['room1', 'room2', 'room3'],
+    rooms: [{
+        enemyName: 'one',
+        enemyHealth: 15
+    }, {
+        enemyName: 'two',
+        enemyHealth: 0
+    }, 'room3'],
     currentRoom: 'room1',
     inCombat: false,
     isAlive: true,
@@ -43,7 +51,7 @@ test('UPDATE_DECK', () => {
 test('LOSE_HEALTH', () => {
     let newState = reducer(initialState, {
         type: LOSE_HEALTH,
-        currentHealth: reduceHealth(currentHealth, 20)
+        currentHealth: reduceHealth(100, 20)
     });
 
     expect(newState.currentHealth).toEqual(80);
@@ -53,7 +61,7 @@ test('LOSE_HEALTH', () => {
 test('GAIN_HEALTH', () => {
     let newState = reducer(initialState, {
         type: GAIN_HEALTH,
-        currentHealth: gainHealth(currentHealth)
+        currentHealth: gainHealth(100)
     });
 
     expect(newState.currenHealth).toEqual(100);
@@ -88,4 +96,24 @@ test('REMOVE_FROM_DECK', () => {
 
     expect(newState.deck.length).toBe(2);
     expect(initialState.deck.length).toBe(3);
+});
+
+test('CHECK_ENEMY_HEALTH', () => {
+    let newState = reducer(initialState, {
+        type: CHECK_ENEMY_HEALTH,
+        rooms: isAlive(rooms[1].enemyHealth)
+    });
+
+    expect(newState.rooms).toBe(true);
+    expect(initialState.rooms).toBe(true);
+});
+
+test('NEW_ROOM', () => {
+    let newState = reducer(initialState, {
+        type: NEW_ROOM,
+        rooms: newRoom(rooms)
+    })
+
+    expect(newState.rooms).toBe(1);
+    expect(initialState.rooms).toBe(1);
 })
