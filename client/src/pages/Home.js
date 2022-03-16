@@ -96,12 +96,15 @@ function Home() {
     // here we are going to check to see if the player is in combat, if they aren't then we are checking
     // to see if there are enemies remaining, if they are all dead then we move on to the next room
     let newRoom = 0;
-    state.rooms.forEach((room) => {
-      if (room.length == 0) newRoom++;
-      dispatch({
-        type: NEW_ROOM,
-        currentRoom: newRoom,
-      });
+    if(state.currentRoom == 0 && state.enemyOneHealth <= 0)
+      newRoom++;
+    else if(state.currentRoom == 1 && state.enemyTwoHealth <= 0)
+      newRoom += 2
+    else if(state.enemyThreeHealth)
+
+    dispatch({
+      type: NEW_ROOM,
+      currentRoom: newRoom
     });
   }, [state.inCombat]);
 
