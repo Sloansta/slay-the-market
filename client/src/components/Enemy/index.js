@@ -87,11 +87,30 @@ function Enemy() {
           onClick={(e) => selectedEnemy(0, e)}
           onChange={forceUpdate}
         >
-          <div className="card-body">
-            <h5>Name: {state.enemies[state.currentRoom].name}</h5>
-            <h5>Health: {state.enemyOneHealth}</h5>
-            <h5>Block: {state.enemies[state.currentRoom].blockVal}</h5>
+          <div>
+            {state.currentRoom ? 0 (
+              <div className="card-body">
+                <h5>Name: {state.enemies[state.currentRoom].name}</h5>
+                <h5>Health: {state.enemyOneHealth}</h5>
+                <h5>Block: {state.enemies[state.currentRoom].blockVal}</h5>
+              </div>
+            ) : null}
+            {state.currentRoom ? 1 (
+              <div className="card-body">
+                <h5>Name: {state.enemies[state.currentRoom].name}</h5>
+                <h5>Health: {state.enemyTwoHealth}</h5>
+                <h5>Block: {state.enemies[state.currentRoom].blockVal}</h5>
+              </div>
+            ) : null}
+            {state.currentRoom ? 2 (
+              <div className="card-body">
+                <h5>Name: {state.enemies[state.currentRoom].name}</h5>
+                <h5>Health: {state.enemyThreeHealth}</h5>
+                <h5>Block: {state.enemies[state.currentRoom].blockVal}</h5>
+              </div>
+            ) : null}
           </div>
+          
         </div>
       </div>
     </section>
