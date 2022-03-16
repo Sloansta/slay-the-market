@@ -20,7 +20,7 @@ import {
 
 import { generateRoundData } from "../utils/helpers";
 
-import { POPULATE_CARDS, CREATE_ROOM } from "../utils/actions";
+import { POPULATE_CARDS, CREATE_ROOM, NEW_ROOM } from "../utils/actions";
 
 function Home() {
   const [state, dispatch] = useGameContext();
@@ -61,10 +61,6 @@ function Home() {
 
   useEffect(() => {
     if (enemyData) {
-      // I have tried multiple forloops; doesn't work
-      // I have tried to make the enemy values random; doesn't work
-      // I do not know why, it has to be a timing issue with how useEffect works.
-      // My goal is to get enemy data truly random to avoid this hard coded stuff
 
       let rooms = [];
       let generateEnemies = [
@@ -84,6 +80,20 @@ function Home() {
       console.log(enemyData);
     }
   }, [enemyLoad]);
+
+  useEffect(() => {
+    // here we are going to check to see if the player is in combat, if they aren't then we are checking
+    // to see if there are enemies remaining, if they are all dead then we move on to the next room
+    let newRoom = 0;
+    state.rooms.forEach(room => {
+      if(room.length == 0)
+        newRoom++;
+        dispatch({
+          type: NEW_ROOM,
+          currentRoom: newRoom
+        });
+    })
+  }, [state.inCombat]);
 
   console.log(state);
   //console.log(enemies.data);
