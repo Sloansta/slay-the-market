@@ -62,6 +62,7 @@ function Home() {
   useEffect(() => {
     if (enemyData) {
       let rooms = [];
+     /*  
       let generateEnemies = [
         enemyData.enemies[randomVal(0, 13)],
         enemyData.enemies[randomVal(0, 13)],
@@ -73,15 +74,15 @@ function Home() {
         enemyData.enemies[randomVal(0, 13)],
         enemyData.enemies[randomVal(0, 13)],
         enemyData.enemies[randomVal(14, 16)],
-      ];
+      ];*/
 
-      let filterEnemy = Array.from(new Set(generateEnemies));
+      //let filterEnemy = [state.enemyOne, state.enemyTwo, state.enemyThree];//
 
-      rooms.push(filterEnemy);
+      rooms.push(state.enemyOne, state.enemyTwo, state.enemyThree);
 
       dispatch({
         type: CREATE_ENEMIES,
-        enemies: filterEnemy,
+        enemies: rooms,
       });
 
       //console.log(rooms);

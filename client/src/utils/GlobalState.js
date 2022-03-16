@@ -1,9 +1,9 @@
 import React, { createContext, useContext } from 'react';
 import { useGameReducer } from './reducers';
+import { randomVal } from "./helpers";
 
 const GameContext = createContext();
 const { Provider } = GameContext;
-import { randomVal } from "./helpers";
 
 const GameProvider = ({ value = [], ...props}) => {
     const [state, dispatch] = useGameReducer({
@@ -32,7 +32,7 @@ const GameProvider = ({ value = [], ...props}) => {
             currentHealth: randomVal(15, 25),
             maxHealth: 30
         },
-        rooms: [enemyOne, enemyTwo, enemyThree],
+        rooms: [],
         finalBoss: [],
         currentRoom: 0,
         playerTurn: true,
