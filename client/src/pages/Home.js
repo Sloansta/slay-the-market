@@ -80,6 +80,7 @@ function Home() {
 
       rooms.push(state.enemyOne, state.enemyTwo, state.enemyThree);
       console.log(rooms);
+      console.log(rooms[state.currentRoom].currentHealth);
 
       dispatch({
         type: CREATE_ENEMIES,
