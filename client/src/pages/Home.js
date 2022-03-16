@@ -55,7 +55,7 @@ function Home() {
         cards: selectedCards,
       });
 
-      console.log(state.cards);
+      // console.log(state.cards);
     }
   }, [loading]);
 
@@ -83,7 +83,7 @@ function Home() {
       });
 
       //console.log(rooms);
-      console.log(enemyData);
+      // console.log(enemyData);
     }
   }, [enemyLoad]);
 
@@ -100,7 +100,7 @@ function Home() {
     });
   }, [state.inCombat]);
 
-  console.log(state);
+  // console.log(state);
   //console.log(enemies.data);
 
   /*try {
