@@ -7,7 +7,8 @@ import { reduceHealth } from "../../utils/helpers";
 
 function Enemy() {
   const [state, dispatch] = useGameContext();
-
+  const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), [])
   let enemyHealth;
   let newRoom = 1;
   // const [enemyHealth, setEnemyHealth] = useState(enemyHealth);
@@ -92,6 +93,7 @@ function Enemy() {
           key="0"
           style={{ width: "25rem", height: "10rem" }}
           onClick={(e) => selectedEnemy(0, e)}
+          onChange={forceUpdate}
         >
           <div>
             {state.currentRoom === 0 ? (
