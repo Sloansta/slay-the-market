@@ -16,7 +16,7 @@ function Enemy() {
     e.preventDefault();
     if (state.selectedCard.length !== 0) {
       enemyHealth = reduceHealth(
-        state.enemies[index].currentHealth,
+        state.enemyOneHealth,
         state.selectedCard.value
       );
       console.log('enemy health is now' + enemyHealth);
@@ -89,7 +89,7 @@ function Enemy() {
         >
           <div className="card-body">
             <h5>Name: {state.enemies[state.currentRoom].name}</h5>
-            <h5>Health: {state.enemies[state.currentRoom].currentHealth}</h5>
+            <h5>Health: {state.enemyOneHealth}</h5>
             <h5>Block: {state.enemies[state.currentRoom].blockVal}</h5>
           </div>
         </div>
