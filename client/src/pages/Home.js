@@ -79,6 +79,7 @@ function Home() {
       //let filterEnemy = [state.enemyOne, state.enemyTwo, state.enemyThree];//
 
       rooms.push(state.enemyOne, state.enemyTwo, state.enemyThree);
+      console.log(rooms);
 
       dispatch({
         type: CREATE_ENEMIES,
