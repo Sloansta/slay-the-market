@@ -53,39 +53,9 @@ function Enemy() {
           onClick={() => selectedEnemy(0)}
         >
           <div className="card-body">
-            <h5>Name: {state.enemies[0].name}</h5>
-            <h5>Health: {state.enemies[0].currentHealth}</h5>
-            <h5>Block: {state.enemies[0].blockVal}</h5>
-          </div>
-        </div>
-      </div>
-
-      <div className="card-deck">
-        <div
-          className="enemy card"
-          key="1"
-          style={{ width: "25rem", height: "10rem" }}
-          onClick={() => selectedEnemy(1)}
-        >
-          <div className="card-body">
-            <h5>Name: {state.enemies[1].name}</h5>
-            <h5>Health: {state.enemies[1].currentHealth}</h5>
-            <h5>Block: {state.enemies[1].blockVal}</h5>
-          </div>
-        </div>
-      </div>
-
-      <div className="card-deck">
-        <div
-          className="enemy card"
-          key="2"
-          style={{ width: "25rem", height: "10rem" }}
-          onClick={() => selectedEnemy(2)}
-        >
-          <div className="card-body">
-            <h5>Name: {state.enemies[2].name}</h5>
-            <h5>Health: {state.enemies[2].currentHealth}</h5>
-            <h5>Block: {state.enemies[2].blockVal}</h5>
+            <h5>Name: {state.enemies[state.currentRoom].name}</h5>
+            <h5>Health: {state.enemies[state.currentRoom].currentHealth}</h5>
+            <h5>Block: {state.enemies[state.currentRoom].blockVal}</h5>
           </div>
         </div>
       </div>
