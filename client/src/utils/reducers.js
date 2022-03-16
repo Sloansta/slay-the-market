@@ -3,14 +3,16 @@ import {
     LOSE_HEALTH,
     GAIN_HEALTH,
     UPGRADE_CARD,
-    CREATE_ROOM,
+    CREATE_ENEMIES,
     DISCARD,
     ADD_TO_DECK,
     SHUFFLE_DECK,
     IS_ALIVE,
     POPULATE_CARDS,
     REMOVE_FROM_DECK,
-    NEW_HAND
+    NEW_HAND,
+    SELECTED_CARD,
+    SELECTED_ENEMY
 } from './actions';
 
 import { isAlive, reduceHealth, gainHealth } from './helpers';
@@ -44,10 +46,10 @@ export const reducer = (state, action) => {
             return {
 
             };
-        case CREATE_ROOM:
+        case CREATE_ENEMIES:
             return {
                 ...state,
-                rooms: [...action.rooms]
+                enemies: [...action.enemies]
             };
         case DISCARD:
             return {
@@ -67,7 +69,6 @@ export const reducer = (state, action) => {
                 ...state,
                 deck: newState
             };
-
         case POPULATE_CARDS: 
             return {
                 ...state,
@@ -77,6 +78,17 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 hand: [...action.hand]
+            };
+        case SELECTED_CARD:
+            let thisCard = action.selectedCard
+            return {
+                ...state,
+                selectedCard: thisCard
+            };
+        case SELECTED_ENEMY:
+            return {
+                ...state,
+                selectedEnemy: action.selectedEnemy
             }
         default:
             return state
