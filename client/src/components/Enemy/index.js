@@ -21,8 +21,6 @@ function Enemy () {
       });
     }
   }
-
-
   
   // const renderEnemies = state.enemies.map((enemy, index) =>
   //   <div className="enemy card" style={{"width": "25rem", "height": "10rem"}} onClick={() => selectedEnemy(index)}>
