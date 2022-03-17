@@ -1,27 +1,28 @@
 import {
-    UPDATE_DECK,
-    LOSE_HEALTH,
-    GAIN_HEALTH,
-    UPGRADE_CARD,
-    CREATE_ENEMIES,
-    DISCARD,
-    ADD_TO_DECK,
-    SHUFFLE_DECK,
-    IS_ALIVE,
-    POPULATE_CARDS,
-    REMOVE_FROM_DECK,
-    NEW_HAND,
-    SELECTED_CARD,
-    SELECTED_ENEMY,
-    NEW_ROOM,
-    LOSE_HEALTH_ENEMY_1,
-    LOSE_HEALTH_ENEMY_2,
-    LOSE_HEALTH_ENEMY_3
-} from './actions';
+  UPDATE_DECK,
+  LOSE_HEALTH,
+  GAIN_HEALTH,
+  UPGRADE_CARD,
+  CREATE_ENEMIES,
+  DISCARD,
+  ADD_TO_DECK,
+  SHUFFLE_DECK,
+  IS_ALIVE,
+  POPULATE_CARDS,
+  REMOVE_FROM_DECK,
+  NEW_HAND,
+  SELECTED_CARD,
+  SELECTED_ENEMY,
+  NEW_ROOM,
+  LOSE_HEALTH_ENEMY_1,
+  LOSE_HEALTH_ENEMY_2,
+  LOSE_HEALTH_ENEMY_3,
+  LOSE_HEALTH_ENEMY_4,
+} from "./actions";
 
-import { isAlive, reduceHealth, gainHealth } from './helpers';
+import { isAlive, reduceHealth, gainHealth } from "./helpers";
 
-import { useReducer } from 'react';
+import { useReducer } from "react";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -47,6 +48,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         enemyThreeHealth: action.enemyThreeHealth,
+      };
+
+    case LOSE_HEALTH_ENEMY_4:
+      return {
+        ...state,
+        enemyFourHealth: action.enemyFourHealth,
       };
     /*case LOSE_HEALTH_ENEMY_1: 
             return {
@@ -118,7 +125,7 @@ export const reducer = (state, action) => {
     case NEW_ROOM:
       return {
         ...state,
-        currentRoom: action.newRoom,
+        currentRoom: action.currentRoom,
       };
     default:
       return state;
@@ -126,5 +133,5 @@ export const reducer = (state, action) => {
 };
 
 export function useGameReducer(initialState) {
-    return useReducer(reducer, initialState);
+  return useReducer(reducer, initialState);
 }
