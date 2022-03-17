@@ -71,10 +71,6 @@ function Player() {
         <div className="player-info">
             <Icon />
             <Card />
-
-          <button type="submit">
-            End Turn
-          </button>
         </div>
       </div>
     </section>
