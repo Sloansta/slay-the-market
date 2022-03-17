@@ -130,8 +130,8 @@ export const reducer = (state, action) => {
       };
     case CHECK_ENEMY_HEALTH:
         return {
-            ...state,
-            isAlive: state.isAlive
+        ...state,
+        isAlive: state.isAlive
         }
     default:
       return state;
