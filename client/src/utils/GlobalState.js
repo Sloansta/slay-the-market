@@ -7,7 +7,7 @@ const { Provider } = GameContext;
 
 const GameProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useGameReducer({
-    userName: "Temp Player",
+    userName: "Player 1",
     currentHealth: 100,
     maxHealth: 100,
     hand: [],
@@ -19,28 +19,28 @@ const GameProvider = ({ value = [], ...props }) => {
     enemyThreeHealth: 45,
     enemyFourHealth: 60,
     enemyOne: {
-      name: "enemy1",
+      name: "Sweaty Crypto Bro",
       attack: randomVal(4, 10),
       block: randomVal(0, 5),
       currentHealth: 20,
       maxHealth: 30,
     },
     enemyTwo: {
-      name: "enemy2",
+      name: "Strange Looking Ape PNG",
       attack: randomVal(4, 10),
       block: randomVal(0, 5),
       currentHealth: randomVal(10, 20),
       maxHealth: 45,
     },
     enemyThree: {
-      name: "enemy3",
+      name: "Unknown Twitter NFT Bro",
       attack: randomVal(4, 10),
       block: randomVal(0, 5),
       currentHealth: randomVal(15, 25),
       maxHealth: 30,
     },
     enemyFour: {
-      name: "Boss",
+      name: "The Zucc",
       attack: randomVal(7, 15),
       block: randomVal(3, 6),
       currentHealth: 60,

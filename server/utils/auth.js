@@ -5,7 +5,6 @@ require("dotenv").config();
 
 // PUT  JWT_PW="mysecretsshhhhh"    In .env file
 
-
 const secret = process.env.JWT_PW;
 
 const expiration = "2h";
