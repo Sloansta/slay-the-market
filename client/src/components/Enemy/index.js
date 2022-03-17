@@ -5,6 +5,7 @@ import {
   LOSE_HEALTH_ENEMY_1,
   LOSE_HEALTH_ENEMY_2,
   LOSE_HEALTH_ENEMY_3,
+  LOSE_HEALTH_ENEMY_4,
   NEW_ROOM,
 } from "../../utils/actions";
 import { stat } from "fs";
@@ -32,6 +33,7 @@ function Enemy() {
         console.log("state.currentroom ", state.currentRoom);
         console.log("Room ", room);
         if (state.currentRoom === room) {
+          // debugger;
           console.log("1");
 
           const dispatchObject = {};
@@ -75,6 +77,7 @@ function Enemy() {
     }
     console.log(state);
     // Switch statements to call different rooms and enemies
+    console.log("NewRoom: ", newRoom);
     switch (newRoom) {
       case 0:
         changeEnemyHealth(0, "enemyOneHealth", LOSE_HEALTH_ENEMY_1);
@@ -83,10 +86,16 @@ function Enemy() {
       case 1:
         changeEnemyHealth(1, "enemyTwoHealth", LOSE_HEALTH_ENEMY_2);
         break;
-
-      default:
+      case 2:
         changeEnemyHealth(2, "enemyThreeHealth", LOSE_HEALTH_ENEMY_3);
         break;
+
+      case 3:
+        changeEnemyHealth(3, "enemyFourHealth", LOSE_HEALTH_ENEMY_4);
+        break;
+
+      default:
+      // changeEnemyHealth(3, "enemyFourHealth", LOSE_HEALTH_ENEMY_4);
     }
   }
 
@@ -167,6 +176,18 @@ function Enemy() {
                 <h5>Name: {state.enemies[state.currentRoom].name}</h5>
                 <h5>Health: {state.enemyThreeHealth}</h5>
                 <h5>Block: {state.enemies[state.currentRoom].blockVal}</h5>
+              </div>
+            ) : null}
+            {state.currentRoom === 3 ? (
+              <div className="card-body">
+                <h5>Name: {state.enemies[state.currentRoom].name}</h5>
+                <h5>Health: {state.enemyFourHealth}</h5>
+                <h5>Block: {state.enemies[state.currentRoom].blockVal}</h5>
+              </div>
+            ) : null}
+            {state.currentRoom === 4 ? (
+              <div className="card-body">
+                <h1>YOU WIN!</h1>
               </div>
             ) : null}
           </div>

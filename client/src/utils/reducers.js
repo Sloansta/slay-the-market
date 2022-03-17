@@ -17,6 +17,7 @@ import {
   LOSE_HEALTH_ENEMY_1,
   LOSE_HEALTH_ENEMY_2,
   LOSE_HEALTH_ENEMY_3,
+  LOSE_HEALTH_ENEMY_4,
 } from "./actions";
 
 import { isAlive, reduceHealth, gainHealth } from "./helpers";
@@ -47,6 +48,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         enemyThreeHealth: action.enemyThreeHealth,
+      };
+
+    case LOSE_HEALTH_ENEMY_4:
+      return {
+        ...state,
+        enemyFourHealth: action.enemyFourHealth,
       };
     /*case LOSE_HEALTH_ENEMY_1: 
             return {

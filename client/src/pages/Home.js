@@ -78,7 +78,12 @@ function Home() {
 
       //let filterEnemy = [state.enemyOne, state.enemyTwo, state.enemyThree];//
 
-      rooms.push(state.enemyOne, state.enemyTwo, state.enemyThree);
+      rooms.push(
+        state.enemyOne,
+        state.enemyTwo,
+        state.enemyThree,
+        state.enemyFour
+      );
       console.log(rooms);
       console.log(rooms[state.currentRoom].currentHealth);
 
