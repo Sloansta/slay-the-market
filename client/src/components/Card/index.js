@@ -35,8 +35,8 @@ function Card() {
       });
       for (let i = 0; i < 5; i++) {
         //const element = array[i];
-        console.log("Index = ", index);
-        console.log("i", i);
+       // console.log("Index = ", index);
+       // console.log("i", i);
         if (index == i) {
           document.getElementById(`${index}-player`).style.border =
             "solid 1px red";

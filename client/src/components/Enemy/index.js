@@ -25,27 +25,27 @@ function Enemy() {
     e.preventDefault();
     function changeEnemyHealth(room, enemyNumber, loseHealthNum) {
       if (state.selectedCard.length !== 0) {
-        console.log(".5");
+       // console.log(".5");
         enemyHealth = reduceHealth(
           state[`${enemyNumber}`],
           state.selectedCard.value
         );
-        console.log("state.currentroom ", state.currentRoom);
-        console.log("Room ", room);
+       // console.log("state.currentroom ", state.currentRoom);
+       // console.log("Room ", room);
         if (state.currentRoom === room) {
           // debugger;
-          console.log("1");
+        //  console.log("1");
 
           const dispatchObject = {};
           dispatchObject[`${enemyNumber}`] = enemyHealth;
           dispatchObject.type = loseHealthNum;
           dispatch(dispatchObject);
           if (enemyHealth <= 0) {
-            console.log("2");
+         //   console.log("2");
             let nextRoom = state.currentRoom + 1;
             // nextRoom = nextRoom + 1;
 
-            console.log(nextRoom);
+          //  console.log(nextRoom);
             dispatch({
               type: NEW_ROOM,
               currentRoom: nextRoom,
@@ -75,9 +75,9 @@ function Enemy() {
       //   }
       // }
     }
-    console.log(state);
+    //console.log(state);
     // Switch statements to call different rooms and enemies
-    console.log("NewRoom: ", newRoom);
+   // console.log("NewRoom: ", newRoom);
     switch (newRoom) {
       case 0:
         changeEnemyHealth(0, "enemyOneHealth", LOSE_HEALTH_ENEMY_1);
