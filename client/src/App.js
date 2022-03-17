@@ -13,7 +13,7 @@ import { useQuery } from '@apollo/client';
 import { GameProvider } from './utils/GlobalState';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql'
+  uri: '/graphql'
 });
 
 // add authLink / token retrieval (NOT NEEDED TO PLAY GAME)
