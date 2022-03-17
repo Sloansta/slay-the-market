@@ -1,10 +1,11 @@
 import React from 'react';
+import caveBackground from '../../assets/stages/cave.png'
 
 function Cave () {
     return (
-        <section>
-            <h2>This is a cave</h2>
-        </section>
+      <>
+      Cave
+      </>
     )
 }
 

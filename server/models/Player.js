@@ -1,8 +1,9 @@
-// id userName password email currentHealth maxHealth deck
+// Player Model
 
 const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
+// Use brcypt to hash passwords
 const bcrypt = require("bcrypt");
 
 const playerSchema = new Schema({
