@@ -1,6 +1,8 @@
 import React, { createContext, useContext } from "react";
 import { useGameReducer } from "./reducers";
 import { randomVal } from "./helpers";
+import { boredApe } from '../assets/sprites/boredape.png'
+
 
 const GameContext = createContext();
 const { Provider } = GameContext;
@@ -24,6 +26,7 @@ const GameProvider = ({ value = [], ...props }) => {
       block: randomVal(0, 5),
       currentHealth: 20,
       maxHealth: 30,
+      sprite: boredApe
     },
     enemyTwo: {
       name: "enemy2",

@@ -12,6 +12,7 @@ import { stat } from "fs";
 
 import { useGameContext } from "../../utils/GlobalState";
 import { reduceHealth } from "../../utils/helpers";
+import boredApe from '../../assets/sprites/boredape.png'
 
 function Enemy() {
   const [state, dispatch] = useGameContext();
@@ -160,6 +161,7 @@ function Enemy() {
           <div>
             {state.currentRoom === 0 ? (
               <div className="card-body">
+                <img src={boredApe} />
                 <h5>Name: {state.enemies[state.currentRoom].name}</h5>
                 <h5>Health: {state.enemyOneHealth}</h5>
                 <h5>Block: {state.enemies[state.currentRoom].blockVal}</h5>

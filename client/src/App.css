@@ -8,6 +8,10 @@
   --red: #FF827A;
 }
 
+body {
+  background-image: url('./assets/stages/cave.png');
+}
+
 main input {
   background-color: var(--gray);
   color: var(--white);
