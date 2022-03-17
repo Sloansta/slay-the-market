@@ -423,7 +423,7 @@ db.once("open", async () => {
     {
       name: "Sweaty Crypto Bro",
       isBoss: false,
-      currentHealth: 10,
+      currentHealth: 25,
       maxHealth: 20,
       isBoss: false,
 
@@ -440,7 +440,7 @@ db.once("open", async () => {
     },
     {
       name: "Generic Shiba Inu",
-      currentHealth: 15,
+      currentHealth: 20,
       maxHealth: 20,
       isBoss: false,
 
@@ -450,7 +450,7 @@ db.once("open", async () => {
     {
       name: "Crypto Punk",
       currentHealth: randomVal(5, 20),
-      maxHealth: 20,
+      maxHealth: 35,
       isBoss: false,
 
       attack: randomVal(2, 4),
@@ -459,7 +459,7 @@ db.once("open", async () => {
     {
       name: "Over Priced Cat PNG",
       currentHealth: randomVal(15, 20),
-      maxHealth: 34,
+      maxHealth: 40,
       isBoss: false,
 
       attack: randomVal(2, 6),
@@ -468,7 +468,7 @@ db.once("open", async () => {
     {
       name: "An Egg????",
       currentHealth: randomVal(5, 15),
-      maxHealth: 13,
+      maxHealth: 45,
       isBoss: false,
 
       attack: randomVal(1, 4),
@@ -477,7 +477,7 @@ db.once("open", async () => {
     {
       name: "Totally Unique JPEG",
       currentHealth: randomVal(5, 10),
-      maxHealth: 10,
+      maxHealth: 21,
       isBoss: false,
 
       attack: randomVal(1, 3),
@@ -486,7 +486,7 @@ db.once("open", async () => {
     {
       name: "Crypto Blob",
       currentHealth: randomVal(6, 10),
-      maxHealth: 10,
+      maxHealth: 51,
       isBoss: false,
 
       attack: randomVal(1, 6),
@@ -495,7 +495,7 @@ db.once("open", async () => {
     {
       name: "Generic Crypto Coin",
       currentHealth: randomVal(3, 15),
-      maxHealth: 15,
+      maxHealth: 28,
       isBoss: false,
 
       attack: randomVal(1, 7),
@@ -504,7 +504,7 @@ db.once("open", async () => {
     {
       name: "Crypto Enemy 153",
       currentHealth: randomVal(3, 15),
-      maxHealth: 20,
+      maxHealth: 45,
       isBoss: false,
 
       attack: randomVal(1, 3),
@@ -513,7 +513,7 @@ db.once("open", async () => {
     {
       name: "Unknown Twitter NFT Bro",
       currentHealth: randomVal(5, 15),
-      maxHealth: 7,
+      maxHealth: 65,
       isBoss: false,
 
       attack: randomVal(1, 6),
@@ -522,7 +522,7 @@ db.once("open", async () => {
     {
       name: "Mysterious NFT Image",
       currentHealth: randomVal(2, 8),
-      maxHealth: 14,
+      maxHealth: 25,
       isBoss: false,
 
       attack: randomVal(1, 3),
@@ -531,7 +531,7 @@ db.once("open", async () => {
     {
       name: "NFT Mega Collector",
       currentHealth: randomVal(7, 17),
-      maxHealth: 20,
+      maxHealth: 31,
       isBoss: false,
 
       attack: randomVal(3, 8),
@@ -541,7 +541,7 @@ db.once("open", async () => {
       name: "The Bored Ape",
       currentHealth: randomVal(20, 56),
       isBoss: true,
-      maxHealth: 50,
+      maxHealth: 100,
 
       attack: randomVal(1, 7),
       block: randomVal(2, 10),
@@ -550,7 +550,7 @@ db.once("open", async () => {
       name: "The Zucc",
       currentHealth: randomVal(20, 60),
       isBoss: true,
-      maxHealth: 60,
+      maxHealth: 90,
 
       attack: randomVal(5, 20),
       block: randomVal(5, 25),
@@ -559,7 +559,7 @@ db.once("open", async () => {
       name: "Elon Musk's Crypto Wallet",
       currentHealth: randomVal(28, 40),
       isBoss: true,
-      maxHealth: 25,
+      maxHealth: 85,
 
       attack: randomVal(5, 25),
       block: randomVal(1, 30),

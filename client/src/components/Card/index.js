@@ -31,27 +31,34 @@ function Card() {
       dispatch({
         type: SELECTED_CARD,
 
-        selectedCard: state.hand[index]
-      })
-    
-    if ((state.selectedCard.length === 0)){
-      // console.log('same card');
-      document.getElementById(`${index}-player`).style.border = "solid 1px red";
+        selectedCard: state.hand[index],
+      });
+      for (let i = 0; i < 5; i++) {
+        //const element = array[i];
+        console.log("Index = ", index);
+        console.log("i", i);
+        if (index == i) {
+          document.getElementById(`${index}-player`).style.border =
+            "solid 1px red";
+        } else {
+          document.getElementById(`${index}-player`).style.border = null;
+        }
+      }
+      // if (state.selectedCard.length === 0) {
+      //   // console.log('same card');
+      //   document.getElementById(`${index}-player`).style.border =
+      //     "solid 1px red";
+      // }
+
+      // if ((state.selectedCard.length !== 0) && (state.selectedCard._id !== state.hand[index]._id)) {
+      //   console.log('different card');
+      //   document.getElementById(`${index}-player`).style.border = "solid 1px red";
+      // }
     }
 
-
-    // if ((state.selectedCard.length !== 0) && (state.selectedCard._id !== state.hand[index]._id)) {
-    //   console.log('different card');
-    //   document.getElementById(`${index}-player`).style.border = "solid 1px red";
-    // }
-
-    }
-
-  
-    
     console.log(index);
     // console.log(state);
-    console.log(state.selectedCard)
+    console.log(state.selectedCard);
 
     console.log(state.hand[index]);
   }
@@ -64,8 +71,13 @@ function Card() {
       whileTap={{ scale: 0.9 }}
       // onDragEnd={(event, info) => console.log(info.point.x, info.point.y, event)}
     >
-      <div className="card toggle-border" id={index + `-player`} key={index} style={{"width": "12rem"}} onClick={ () => selectedCard(index)}>
-
+      <div
+        className="card toggle-border"
+        id={index + `-player`}
+        key={index}
+        style={{ width: "12rem" }}
+        onClick={() => selectedCard(index)}
+      >
         {/* <img className="card-img-top" src="..." alt="Card image cap" /> */}
         <div className="card-body">
           <h6 className="card-name">{card.name}</h6>
