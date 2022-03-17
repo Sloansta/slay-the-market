@@ -54,7 +54,6 @@ function Enemy() {
         }
       }
 
-
       // if (state.selectedCard.length !== 0) {
       //   enemyHealth = reduceHealth(
       //     state.enemyOneHealth,
@@ -157,7 +156,7 @@ function Enemy() {
           onClick={(e) => selectedEnemy(0, e)}
           onChange={forceUpdate}
         >
-          <div>
+          <div style={{ userSelect: "none" }}>
             {state.currentRoom === 0 ? (
               <div className="card-body">
                 <h5>Name: {state.enemies[state.currentRoom].name}</h5>

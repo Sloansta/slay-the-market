@@ -56,11 +56,11 @@ function Card() {
       // }
     }
 
-    console.log(index);
+    // console.log(index);
     // console.log(state);
-    console.log(state.selectedCard);
+    // console.log(state.selectedCard);
 
-    console.log(state.hand[index]);
+    // console.log(state.hand[index]);
   }
 
   const renderCards = state.hand.map((card, index) => (
@@ -75,7 +75,7 @@ function Card() {
         className="card toggle-border"
         id={index + `-player`}
         key={index}
-        style={{ width: "12rem" }}
+        style={{ width: "12rem", "margin-top": "1rem" }}
         onClick={() => selectedCard(index)}
       >
         {/* <img className="card-img-top" src="..." alt="Card image cap" /> */}
