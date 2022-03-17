@@ -54,6 +54,7 @@ function Enemy() {
         }
       }
 
+
       // if (state.selectedCard.length !== 0) {
       //   enemyHealth = reduceHealth(
       //     state.enemyOneHealth,
