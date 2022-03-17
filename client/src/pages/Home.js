@@ -33,7 +33,7 @@ function Home() {
       let newCards = data.cards;
 
       const attackStuff = data.cards[Math.random() * 10];
-      console.log("Attack stuff", attackStuff);
+     // console.log("Attack stuff", attackStuff);
 
       const attackCards = newCards.slice(0, 13);
       const blockCards = newCards.slice(14, 20);
@@ -48,7 +48,7 @@ function Home() {
       selectedCards = attackSelected.concat(blockSelected, healSelected);
       selectedCards = selectedCards.sort(() => 0.5 - Math.random());
 
-      console.log("SELECTED ARDS", selectedCards);
+     // console.log("SELECTED ARDS", selectedCards);
 
       dispatch({
         type: POPULATE_CARDS,
@@ -84,8 +84,8 @@ function Home() {
         state.enemyThree,
         state.enemyFour
       );
-      console.log(rooms);
-      console.log(rooms[state.currentRoom].currentHealth);
+     // console.log(rooms);
+     // console.log(rooms[state.currentRoom].currentHealth);
 
       dispatch({
         type: CREATE_ENEMIES,

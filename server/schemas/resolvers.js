@@ -49,7 +49,7 @@ const resolvers = {
           path: "player.cards",
           populate: "cards",
         });
-        console.log("Player: ", player);
+       // console.log("Player: ", player);
 
         return player;
       }
