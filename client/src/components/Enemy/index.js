@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { LOSE_HEALTH, SELECTED_ENEMY, LOSE_HEALTH_ENEMY_1, LOSE_HEALTH_ENEMY_2, LOSE_HEALTH_ENEMY_3, NEW_ROOM } from "../../utils/actions";
+import {
+  LOSE_HEALTH,
+  SELECTED_ENEMY,
+  LOSE_HEALTH_ENEMY_1,
+  LOSE_HEALTH_ENEMY_2,
+  LOSE_HEALTH_ENEMY_3,
+  NEW_ROOM,
+} from "../../utils/actions";
 import { stat } from "fs";
 
 import { useGameContext } from "../../utils/GlobalState";
@@ -8,68 +15,113 @@ import { reduceHealth } from "../../utils/helpers";
 function Enemy() {
   const [state, dispatch] = useGameContext();
   const [, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), [])
+  const forceUpdate = React.useCallback(() => updateState({}), []);
   let enemyHealth;
-  let newRoom = 1;
+  let newRoom = state.currentRoom;
   // const [enemyHealth, setEnemyHealth] = useState(enemyHealth);
   // debugger;
   function selectedEnemy(index, e) {
     e.preventDefault();
-    if (state.selectedCard.length !== 0) {
-      enemyHealth = reduceHealth(
-        state.enemyOneHealth,
-        state.selectedCard.value
-      );
-      console.log('enemy health is now' + enemyHealth);
+    function changeEnemyHealth(room, enemyNumber, loseHealthNum) {
+      if (state.selectedCard.length !== 0) {
+        console.log(".5");
+        enemyHealth = reduceHealth(
+          state[`${enemyNumber}`],
+          state.selectedCard.value
+        );
+        console.log("state.currentroom ", state.currentRoom);
+        console.log("Room ", room);
+        if (state.currentRoom === room) {
+          console.log("1");
 
-      if (state.currentRoom === 0) {
-          dispatch({
-          type: LOSE_HEALTH_ENEMY_1,
-          enemyOneHealth: enemyHealth
-        });
-        if (enemyHealth <= 0) {
-          dispatch({
-            type: NEW_ROOM,
-            currentRoom: newRoom
-          })
+          const dispatchObject = {};
+          dispatchObject[`${enemyNumber}`] = enemyHealth;
+          dispatchObject.type = loseHealthNum;
+          dispatch(dispatchObject);
+          if (enemyHealth <= 0) {
+            console.log("2");
+            let nextRoom = state.currentRoom + 1;
+            // nextRoom = nextRoom + 1;
+
+            console.log(nextRoom);
+            dispatch({
+              type: NEW_ROOM,
+              currentRoom: nextRoom,
+            });
+          }
         }
       }
+
+      // if (state.selectedCard.length !== 0) {
+      //   enemyHealth = reduceHealth(
+      //     state.enemyOneHealth,
+      //     state.selectedCard.value
+      //   );
+      //   console.log("enemy health is now" + enemyHealth);
+
+      // if (state.currentRoom === 0) {
+      //   dispatch({
+      //     type: LOSE_HEALTH_ENEMY_1,
+      //     enemyOneHealth: enemyHealth,
+      //   });
+      //   if (enemyHealth <= 0) {
+      //     console.log(newRoom);
+      //     dispatch({
+      //       type: NEW_ROOM,
+      //       currentRoom: newRoom,
+      //     });
+      //   }
+      // }
     }
     console.log(state);
+    // Switch statements to call different rooms and enemies
+    switch (newRoom) {
+      case 0:
+        changeEnemyHealth(0, "enemyOneHealth", LOSE_HEALTH_ENEMY_1);
+        break;
+
+      case 1:
+        changeEnemyHealth(1, "enemyTwoHealth", LOSE_HEALTH_ENEMY_2);
+        break;
+
+      default:
+        changeEnemyHealth(2, "enemyThreeHealth", LOSE_HEALTH_ENEMY_3);
+        break;
+    }
   }
 
-    // switch (state.currentRoom) {
-    //   case 0:
-    //     dispatch({
-    //       type: LOSE_HEALTH_ENEMY_1,
-    //       enemyOneHealth: enemyHealth
-    //     });
-    //     break;
-    //   case 1:
-    //     dispatch({
-    //     type: LOSE_HEALTH_ENEMY_2,
-    //     enemyTwoHealth: enemyHealth
-    //   });
-    //     break;
-    //   case 2:
-    //     dispatch({
-    //       type: LOSE_HEALTH_ENEMY_3,
-    //       enemyThreeHealth: enemyHealth
-    //     });
-    //     break;
-    // }
-      // dispatch({
-      //   type: SELECTED_ENEMY,
-      //   selectedEnemy: state.enemies[index],
-      // });
-      // dispatch({
-      //   type: LOSE_HEALTH,
-      //   currentHealth: enemyHealth,
-      // });
-    // }
-    // if (state.enemies[index].currentHealth <= 0) {
-    //   document.getElementById('target').style.opacity = "25%";
-    // }
+  // switch (state.currentRoom) {
+  //   case 0:
+  //     dispatch({
+  //       type: LOSE_HEALTH_ENEMY_1,
+  //       enemyOneHealth: enemyHealth
+  //     });
+  //     break;
+  //   case 1:
+  //     dispatch({
+  //     type: LOSE_HEALTH_ENEMY_2,
+  //     enemyTwoHealth: enemyHealth
+  //   });
+  //     break;
+  //   case 2:
+  //     dispatch({
+  //       type: LOSE_HEALTH_ENEMY_3,
+  //       enemyThreeHealth: enemyHealth
+  //     });
+  //     break;
+  // }
+  // dispatch({
+  //   type: SELECTED_ENEMY,
+  //   selectedEnemy: state.enemies[index],
+  // });
+  // dispatch({
+  //   type: LOSE_HEALTH,
+  //   currentHealth: enemyHealth,
+  // });
+  // }
+  // if (state.enemies[index].currentHealth <= 0) {
+  //   document.getElementById('target').style.opacity = "25%";
+  // }
 
   //   console.log(state);
   // }
@@ -118,7 +170,6 @@ function Enemy() {
               </div>
             ) : null}
           </div>
-          
         </div>
       </div>
     </section>
