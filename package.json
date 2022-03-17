@@ -2,6 +2,9 @@
   "name": "slay-the-market",
   "version": "1.0.0",
   "description": "Slay the market",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
