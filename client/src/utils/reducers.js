@@ -14,6 +14,7 @@ import {
   SELECTED_CARD,
   SELECTED_ENEMY,
   NEW_ROOM,
+  CHECK_ENEMY_HEALTH,
   LOSE_HEALTH_ENEMY_1,
   LOSE_HEALTH_ENEMY_2,
   LOSE_HEALTH_ENEMY_3,
@@ -29,7 +30,7 @@ export const reducer = (state, action) => {
     case LOSE_HEALTH:
       return {
         ...state,
-        currentHealth: state.currentHealth,
+        currentHealth: action.currentHealth,
       };
 
     case LOSE_HEALTH_ENEMY_1:
@@ -63,13 +64,13 @@ export const reducer = (state, action) => {
     case GAIN_HEALTH:
       return {
         ...state,
-        currentHealth: gainHealth(...state.currentHealth, ...state.maxHealth),
+        currentHealth: action.currentHealth
       };
     case IS_ALIVE:
       // let newState =
       return {
         ...state,
-        isAlive: isAlive(...state.currentHealth, action.isAlive),
+        isAlive: state.isAlive
       };
     case UPDATE_DECK:
       return {
@@ -99,7 +100,7 @@ export const reducer = (state, action) => {
       });
       return {
         ...state,
-        deck: newState,
+        cards: newState,
       };
     case POPULATE_CARDS:
       return {
@@ -127,6 +128,11 @@ export const reducer = (state, action) => {
         ...state,
         currentRoom: action.currentRoom,
       };
+    case CHECK_ENEMY_HEALTH:
+        return {
+            ...state,
+            isAlive: state.isAlive
+        }
     default:
       return state;
   }
