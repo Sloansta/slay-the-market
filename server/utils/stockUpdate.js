@@ -200,7 +200,10 @@ function updateStocks() {
     finnhubClient.quote(element.symbol, (error, data, response) => {
       let tmpStock = [];
 
-      console.log(data);
+      // TODO: Add more logic
+      if(!data) {
+        return;
+      }
 
       tmpStock.id = element.id;
       tmpStock.name = element.name;
