@@ -3,7 +3,9 @@ const { Stock } = require("../models");
 require("dotenv").config();
 
 const api_key = finnhub.ApiClient.instance.authentications["api_key"];
-api_key.apiKey = process.env.STOCK_API;
+api_key.apiKey = "c8l5e22ad3icvur3nj00";
+
+// console.log(process.env.STOCK_API);
 
 const finnhubClient = new finnhub.DefaultApi();
 
@@ -184,12 +186,21 @@ let stockArray = [
     percentChange: 0,
   },
 ];
+
 updatedStocks = [];
 
 function updateStocks() {
+
+
+  // finnhubClient.quote("AAPL", (error, data, response) => {
+  //   console.log(data);
+  // }) 
+
   stockArray.forEach((element) => {
     finnhubClient.quote(element.symbol, (error, data, response) => {
       let tmpStock = [];
+
+      console.log(data);
 
       tmpStock.id = element.id;
       tmpStock.name = element.name;
@@ -198,16 +209,16 @@ function updateStocks() {
       tmpStock.percentChange = data.dp;
 
       updatedStocks.push(tmpStock);
-      // console.log(updatedStocks);
-      //   Stock.create([
-      //     {
-      //       id: element.id,
-      //       name: element.name,
-      //       symbol: element.symbol,
-      //       quote: data.c,
-      //       percentChange: data.dp,
-      //     },
-      //   ]);
+      console.log(updatedStocks);
+        Stock.create([
+          {
+            id: element.id,
+            name: element.name,
+            symbol: element.symbol,
+            quote: data.c,
+            percentChange: data.dp,
+          },
+        ]);
     });
   });
 }
